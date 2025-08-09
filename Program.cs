@@ -283,58 +283,58 @@ namespace TaiwanPopularDevelopers
             {
                 Console.WriteLine("正在載入現有用戶資料...");
                 var existingUsers = await LoadExistingUsers();
-                
+
                 if (!existingUsers.Any())
                 {
                     Console.WriteLine("錯誤：找不到現有的用戶資料文件 (Users.json)");
                     Console.WriteLine("請先運行完整的數據收集程序，或確保 Users.json 文件存在");
                     return;
                 }
-                
+
                 Console.WriteLine($"成功載入 {existingUsers.Count} 個用戶資料");
-                
+
                 // 按分數排序，並過濾掉組織用戶
                 var rankedUsers = existingUsers
                     .Where(u => u.Type != "Organization")
                     .OrderByDescending(u => u.Score)
                     .ToList();
-                
+
                 Console.WriteLine($"排名包含 {rankedUsers.Count} 個個人用戶");
-                
+
                 // 生成台灣專案排名
                 Console.WriteLine("正在分析台灣專案...");
                 var taiwanProjects = GenerateTaiwanProjectsRanking(rankedUsers);
                 Console.WriteLine($"找到 {taiwanProjects.Count} 個台灣相關專案");
-                
+
                 // 生成用戶排名 Markdown
                 Console.WriteLine("正在生成用戶排名 Markdown 文件...");
                 var markdown = GenerateMarkdown(rankedUsers);
                 await File.WriteAllTextAsync("Readme.md", markdown, Encoding.UTF8);
                 Console.WriteLine("✓ Readme.md 已生成");
-                
+
                 // 生成用戶排名 HTML
                 Console.WriteLine("正在生成用戶排名 HTML 文件...");
                 var html = GenerateHtml(rankedUsers);
                 await File.WriteAllTextAsync("index.html", html, Encoding.UTF8);
                 Console.WriteLine("✓ index.html 已生成");
-                
+
                 // 生成台灣專案排名 Markdown
                 Console.WriteLine("正在生成台灣專案排名 Markdown 文件...");
-                var projectsMarkdown = GenerateTaiwanProjectsMarkdown(taiwanProjects, rankedUsers);
+                var projectsMarkdown = await GenerateTaiwanProjectsMarkdown(taiwanProjects, rankedUsers);
                 await File.WriteAllTextAsync("Taiwan-Projects.md", projectsMarkdown, Encoding.UTF8);
                 Console.WriteLine("✓ Taiwan-Projects.md 已生成");
-                
+
                 // 生成台灣專案排名 HTML
                 Console.WriteLine("正在生成台灣專案排名 HTML 文件...");
-                var projectsHtml = GenerateTaiwanProjectsHtml(taiwanProjects, rankedUsers);
+                var projectsHtml = await GenerateTaiwanProjectsHtml(taiwanProjects, rankedUsers);
                 await File.WriteAllTextAsync("taiwan-projects.html", projectsHtml, Encoding.UTF8);
                 Console.WriteLine("✓ taiwan-projects.html 已生成");
-                
+
                 Console.WriteLine("\n=== 文件生成完成 ===");
                 Console.WriteLine($"更新時間: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
                 Console.WriteLine($"用戶總數: {rankedUsers.Count}");
                 Console.WriteLine($"台灣專案總數: {taiwanProjects.Count}");
-                
+
                 // 顯示前10名用戶
                 Console.WriteLine("\n前10名用戶:");
                 for (int i = 0; i < Math.Min(10, rankedUsers.Count); i++)
@@ -342,7 +342,7 @@ namespace TaiwanPopularDevelopers
                     var user = rankedUsers[i];
                     Console.WriteLine($"{i + 1,2}. {user.Login} ({user.Name}) - 分數: {user.Score:F0}");
                 }
-                
+
                 // 顯示前10個台灣專案
                 Console.WriteLine("\n前10個台灣專案:");
                 for (int i = 0; i < Math.Min(10, taiwanProjects.Count); i++)
@@ -350,7 +350,7 @@ namespace TaiwanPopularDevelopers
                     var project = taiwanProjects[i];
                     Console.WriteLine($"{i + 1,2}. {project.Name} - ⭐{project.StargazersCount:N0} (擁有者: {project.OwnerLogin})");
                 }
-                
+
                 Console.WriteLine("\n文件生成完成！");
                 Console.WriteLine("• Readme.md - GitHub用戶排名 README 文件");
                 Console.WriteLine("• index.html - GitHub用戶排名 網頁");
@@ -361,6 +361,7 @@ namespace TaiwanPopularDevelopers
             {
                 Console.WriteLine($"文件生成時發生錯誤: {ex.Message}");
                 Console.WriteLine($"詳細錯誤: {ex}");
+                throw;
             }
         }
 
@@ -476,13 +477,13 @@ namespace TaiwanPopularDevelopers
                 .ToList();
         }
 
-        /// <summary>
+      /// <summary>
         /// 生成台灣專案排名的Markdown文檔
         /// </summary>
         /// <param name="projects">台灣專案列表</param>
         /// <param name="taiwanUsers">台灣開發者用戶列表</param>
         /// <returns>Markdown字符串</returns>
-        static string GenerateTaiwanProjectsMarkdown(List<TaiwanProject> projects, List<GitHubUser> taiwanUsers)
+        static async Task<string> GenerateTaiwanProjectsMarkdown(List<TaiwanProject> projects, List<GitHubUser> taiwanUsers)
         {
             var sb = new StringBuilder();
             
@@ -494,55 +495,77 @@ namespace TaiwanPopularDevelopers
             sb.AppendLine("> 2. **組織專案**：台灣開發者是該專案的第一貢獻者");
             sb.AppendLine("> 3. **開源貢獻**：台灣開發者是其他專案的第一貢獻者");
             sb.AppendLine(">");
-            sb.AppendLine("> 按照 ⭐ Star 數量降序排列");
+            sb.AppendLine("> 按照 ⭐ Star 數量降序排列，顯示前100名");
             sb.AppendLine();
             sb.AppendLine($"**更新時間**: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
-            sb.AppendLine($"**專案總數**: {projects.Count}");
+            sb.AppendLine($"**專案總數**: {Math.Min(projects.Count, 100)} (顯示前100名)");
             sb.AppendLine();
+
+            // 取前100名專案
+            var top100Projects = projects.Take(100).ToList();
 
             // 生成表格標題
             sb.AppendLine("| 排名 | 台灣貢獻者 | 專案名稱 | ⭐ Stars | 🍴 Forks | 語言 | 擁有者 | 原因 |");
             sb.AppendLine("|------|------------|----------|----------|----------|------|--------|------|");
 
-            for (int i = 0; i < projects.Count; i++)
+            for (int i = 0; i < top100Projects.Count; i++)
             {
-                var project = projects[i];
-                var rank = i + 1;
-                var projectName = $"[{project.Name}]({project.HtmlUrl})";
-                var stars = project.StargazersCount.ToString("N0");
-                var forks = project.ForksCount.ToString("N0");
-                var language = string.IsNullOrEmpty(project.Language) ? "-" : project.Language;
-                
-                // 擁有者資訊 (頭像 + 姓名，參考個人 markdown 顯示方式)
-                var owner = $"[<img src=\"https://github.com/{project.OwnerLogin}.png&s=32\" width=\"32\" height=\"32\" style=\"border-radius: 50%;\" />](https://github.com/{project.OwnerLogin})<br/>**[{project.OwnerLogin}](https://github.com/{project.OwnerLogin})**";
-                
-                // 台灣貢獻者資訊 (頭像 + 姓名，參考個人 markdown 顯示方式)
-                var sortedContributors = project.GetSortedTaiwanContributors(taiwanUsers);
-                var contributors = "";
-                if (sortedContributors.Any())
-                {
-                    var contributorsList = new List<string>();
-                    foreach (var contributor in sortedContributors)
-                    {
-                        contributorsList.Add($"[<img src=\"https://github.com/{contributor}.png&s=32\" width=\"32\" height=\"32\" style=\"border-radius: 50%;\" />](https://github.com/{contributor})<br/>**[{contributor}](https://github.com/{contributor})**");
-                    }
-                    contributors = string.Join("<br/>", contributorsList);
-                }
-                else
-                {
-                    contributors = "-";
-                }
-                
-                var reason = project.Reason;
-                
-                // 轉義管道符號以避免表格格式錯誤
-                projectName = projectName.Replace("|", "\\|");
-                language = language.Replace("|", "\\|");
-                reason = reason.Replace("|", "\\|");
-                contributors = contributors.Replace("|", "\\|");
-                owner = owner.Replace("|", "\\|");
+                try{
 
-                sb.AppendLine($"| {rank} | {contributors} | {projectName} | {stars} | {forks} | {language} | {owner} | {reason} |");
+                    var project = top100Projects[i];
+                    var rank = i + 1;
+                    var projectName = $"[{project.Name}]({project.HtmlUrl})";
+                    var stars = project.StargazersCount.ToString("N0");
+                    var forks = project.ForksCount.ToString("N0");
+                    var language = string.IsNullOrEmpty(project.Language) ? "-" : project.Language;
+
+                    // 擁有者資訊 (頭像 + 姓名 + 真實姓名)
+                    var ownerName = await GetUserDisplayName(project.OwnerLogin, taiwanUsers);
+                    var owner = $"[<img src=\"https://github.com/{project.OwnerLogin}.png&s=32\" width=\"32\" height=\"32\" style=\"border-radius: 50%;\" />](https://github.com/{project.OwnerLogin})<br/>**[{project.OwnerLogin}](https://github.com/{project.OwnerLogin})**";
+                    if (!string.IsNullOrEmpty(ownerName) && ownerName != project.OwnerLogin)
+                    {
+                        owner += $"<br/>{ownerName}";
+                    }
+
+                    // 台灣貢獻者資訊 (頭像10x10px + 姓名 + 真實姓名)
+                    var sortedContributors = project.GetSortedTaiwanContributors(taiwanUsers);
+                    var contributors = "";
+                    if (sortedContributors.Any())
+                    {
+                        var contributorsList = new List<string>();
+                        foreach (var contributor in sortedContributors)
+                        {
+                            var contributorName = GetUserDisplayNameFromList(contributor, taiwanUsers);
+                            var contributorDisplay = $"[<img src=\"https://github.com/{contributor}.png&s=20\" width=\"10\" height=\"10\" style=\"border-radius: 50%;\" />](https://github.com/{contributor}) **[{contributor}](https://github.com/{contributor})**";
+                            if (!string.IsNullOrEmpty(contributorName) && contributorName != contributor)
+                            {
+                                contributorDisplay += $" ({contributorName})";
+                            }
+                            contributorsList.Add(contributorDisplay);
+                        }
+                        contributors = string.Join(" ", contributorsList);
+                    }
+                    else
+                    {
+                        contributors = "-";
+                    }
+
+                    var reason = project.Reason;
+
+                    // 轉義管道符號以避免表格格式錯誤
+                    projectName = projectName.Replace("|", "\\|");
+                    language = language.Replace("|", "\\|");
+                    reason = reason.Replace("|", "\\|");
+                    contributors = contributors.Replace("|", "\\|");
+                    owner = owner.Replace("|", "\\|");
+
+                    sb.AppendLine($"| {rank} | {contributors} | {projectName} | {stars} | {forks} | {language} | {owner} | {reason} |");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"生成專案 {i + 1} 時發生錯誤: {ex.Message}");
+                    sb.AppendLine($"| {i + 1} | - | - | - | - | - | - | 錯誤: {ex.Message} |");
+                }
             }
             
             return sb.ToString();
@@ -554,7 +577,7 @@ namespace TaiwanPopularDevelopers
         /// <param name="projects">台灣專案列表</param>
         /// <param name="taiwanUsers">台灣開發者用戶列表</param>
         /// <returns>HTML字符串</returns>
-        static string GenerateTaiwanProjectsHtml(List<TaiwanProject> projects, List<GitHubUser> taiwanUsers)
+static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> projects, List<GitHubUser> taiwanUsers)
         {
             var sb = new StringBuilder();
             sb.AppendLine("<!DOCTYPE html>");
@@ -589,8 +612,10 @@ namespace TaiwanPopularDevelopers
             sb.AppendLine("        .nav-links a { color: #3498db; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid #3498db; border-radius: 4px; }");
             sb.AppendLine("        .nav-links a:hover { background: #3498db; color: white; }");
             sb.AppendLine("        .avatar { border-radius: 50%; width: 20px; height: 20px; vertical-align: middle; margin-right: 6px; }");
+            sb.AppendLine("        .avatar-small { border-radius: 50%; width: 20px; height: 20px; vertical-align: middle; margin-right: 4px; }");
             sb.AppendLine("        .owner-info { display: flex; align-items: center; }");
-            sb.AppendLine("        .contributor-item { display: inline-flex; align-items: center; margin-right: 12px; }");
+            sb.AppendLine("        .contributor-item { display: inline-flex; align-items: center; margin-right: 12px; white-space: nowrap; }");
+            sb.AppendLine("        .contributor-name { color: #666; font-size: 0.9em; }");
             sb.AppendLine("    </style>");
             sb.AppendLine("</head>");
             sb.AppendLine("<body>");
@@ -600,7 +625,11 @@ namespace TaiwanPopularDevelopers
             sb.AppendLine("            <a href=\"index.html\">🏆 開發者排名</a>");
             sb.AppendLine("            <a href=\"taiwan-projects.html\">📂 專案排名</a>");
             sb.AppendLine("        </div>");
-            sb.AppendLine($"        <div class=\"stats\">更新時間: {DateTime.Now:yyyy-MM-dd HH:mm:ss} | 專案總數: {projects.Count}</div>");
+            
+            // 取前100名專案
+            var top100Projects = projects.Take(100).ToList();
+            
+            sb.AppendLine($"        <div class=\"stats\">更新時間: {DateTime.Now:yyyy-MM-dd HH:mm:ss} | 專案總數: {Math.Min(projects.Count, 100)} (顯示前100名)</div>");
             sb.AppendLine("        <div class=\"info\">");
             sb.AppendLine("            收錄標準：個人專案擁有者來自台灣，或台灣開發者是該專案的第一貢獻者<br/>");
             sb.AppendLine("            按照 ⭐ Star 數量降序排列");
@@ -620,19 +649,32 @@ namespace TaiwanPopularDevelopers
             sb.AppendLine("            </thead>");
             sb.AppendLine("            <tbody>");
             
-            for (int i = 0; i < projects.Count; i++)
+            for (int i = 0; i < top100Projects.Count; i++)
             {
-                var project = projects[i];
+                var project = top100Projects[i];
                 var rank = i + 1;
                 var languageDisplay = string.IsNullOrEmpty(project.Language) ? "-" : $"<span class=\"language\">{project.Language}</span>";
                 
-                // 生成擁有者信息，包含頭像
-                var ownerHtml = $"<div class=\"owner-info\"><img class=\"avatar\" src=\"https://github.com/{project.OwnerLogin}.png?size=40\" alt=\"{project.OwnerLogin}\" /><a href=\"https://github.com/{project.OwnerLogin}\" target=\"_blank\">{project.OwnerLogin}</a></div>";
+                // 生成擁有者信息，包含頭像和姓名
+                var ownerName = await GetUserDisplayName(project.OwnerLogin, taiwanUsers);
+                var ownerDisplay = project.OwnerLogin;
+                if (!string.IsNullOrEmpty(ownerName) && ownerName != project.OwnerLogin)
+                {
+                    ownerDisplay += $"<br/><span class=\"contributor-name\">{ownerName}</span>";
+                }
+                var ownerHtml = $"<div class=\"owner-info\"><img class=\"avatar\" src=\"https://github.com/{project.OwnerLogin}.png?size=40\" alt=\"{project.OwnerLogin}\" /><a href=\"https://github.com/{project.OwnerLogin}\" target=\"_blank\">{ownerDisplay}</a></div>";
                 
-                // 生成台灣貢獻者信息，包含頭像，台灣開發者優先排序
+                // 生成台灣貢獻者信息，包含10x10px頭像和姓名，台灣開發者優先排序
                 var sortedContributors = project.GetSortedTaiwanContributors(taiwanUsers);
-                var contributorsHtml = string.Join(" ", sortedContributors.Select(c => 
-                    $"<span class=\"contributor-item\"><img class=\"avatar\" src=\"https://github.com/{c}.png?size=40\" alt=\"{c}\" /><a href=\"https://github.com/{c}\" target=\"_blank\">{c}</a></span>"));
+                var contributorsHtml = string.Join(" ", sortedContributors.Select(c => {
+                    var contributorName = GetUserDisplayNameFromList(c, taiwanUsers);
+                    var displayName = c;
+                    if (!string.IsNullOrEmpty(contributorName) && contributorName != c)
+                    {
+                        displayName += $"<br/><span class=\"contributor-name\">{contributorName}</span>";
+                    }
+                    return $"<span class=\"contributor-item\"><img class=\"avatar-small\" src=\"https://github.com/{c}.png?size=20\" alt=\"{c}\" /><a href=\"https://github.com/{c}\" target=\"_blank\">{displayName}</a></span>";
+                }));
                 
                 sb.AppendLine("                <tr>");
                 sb.AppendLine($"                    <td class=\"rank\">{rank}</td>");
@@ -655,6 +697,54 @@ namespace TaiwanPopularDevelopers
             return sb.ToString();
         }
 
+        /// <summary>
+        /// 獲取用戶的顯示名稱，優先返回真實姓名
+        /// </summary>
+        /// <param name="username">用戶名</param>
+        /// <param name="taiwanUsers">台灣用戶列表</param>
+        /// <returns>用戶的顯示名稱</returns>
+        static async Task<string> GetUserDisplayName(string username, List<GitHubUser> taiwanUsers)
+        {
+            // 首先從台灣用戶列表中查找
+            var taiwanUser = taiwanUsers.FirstOrDefault(u => u.Login.Equals(username, StringComparison.OrdinalIgnoreCase));
+            if (taiwanUser != null && !string.IsNullOrEmpty(taiwanUser.Name) && taiwanUser.Name != taiwanUser.Login)
+            {
+                return taiwanUser.Name;
+            }
+            
+            // 如果不在台灣用戶列表中，嘗試獲取用戶詳細信息
+            try
+            {
+                return "";
+                var userDetail = await GetUserDetail(username);
+                if (userDetail != null && !string.IsNullOrEmpty(userDetail.Name) && userDetail.Name != userDetail.Login)
+                {
+                    return userDetail.Name;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"獲取用戶 {username} 詳細信息時發生錯誤: {ex.Message}");
+            }
+            
+            return "";
+        }
+
+        /// <summary>
+        /// 從用戶列表中獲取用戶的顯示名稱
+        /// </summary>
+        /// <param name="username">用戶名</param>
+        /// <param name="taiwanUsers">台灣用戶列表</param>
+        /// <returns>用戶的顯示名稱</returns>
+        static string GetUserDisplayNameFromList(string username, List<GitHubUser> taiwanUsers)
+        {
+            var user = taiwanUsers.FirstOrDefault(u => u.Login.Equals(username, StringComparison.OrdinalIgnoreCase));
+            if (user != null && !string.IsNullOrEmpty(user.Name) && user.Name != user.Login)
+            {
+                return user.Name;
+            }
+            return "";
+        }
         static async Task<List<GitHubUser>> LoadExistingUsers()
         {
             try
@@ -967,11 +1057,11 @@ namespace TaiwanPopularDevelopers
             await File.WriteAllTextAsync("index.html", html, Encoding.UTF8);
             
             // 生成台灣專案排名 Markdown
-            var projectsMarkdown = GenerateTaiwanProjectsMarkdown(taiwanProjects, rankedUsers);
+            var projectsMarkdown = await GenerateTaiwanProjectsMarkdown(taiwanProjects, rankedUsers);
             await File.WriteAllTextAsync("Taiwan-Projects.md", projectsMarkdown, Encoding.UTF8);
             
             // 生成台灣專案排名 HTML
-            var projectsHtml = GenerateTaiwanProjectsHtml(taiwanProjects, rankedUsers);
+            var projectsHtml = await GenerateTaiwanProjectsHtml(taiwanProjects, rankedUsers);
             await File.WriteAllTextAsync("taiwan-projects.html", projectsHtml, Encoding.UTF8);
             
             Console.WriteLine("排名已生成並儲存到以下文件:");
