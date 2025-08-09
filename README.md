@@ -8,7 +8,7 @@
 
 ## 個人
 ### 🏆 [台灣排行](https://food20250810.github.io/Ranking/taiwan/index.html)
-### 🏆 [港澳排行](https://food20250810.github.io/Ranking/taiwan/HongKongAndMacau/index.html)
+### 🏆 [港澳排行](https://food20250810.github.io/Ranking/HongKongAndMacau/index.html)
 
 
 
