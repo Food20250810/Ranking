@@ -29,6 +29,11 @@
         .nav-links { text-align: center; margin-bottom: 2rem; }
         .nav-links a { color: #3498db; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid #3498db; border-radius: 4px; }
         .nav-links a:hover { background: #3498db; color: white; }
+        .avatar { border-radius: 50%; width: 20px; height: 20px; vertical-align: middle; margin-right: 6px; }
+        .avatar-small { border-radius: 50%; width: 20px; height: 20px; vertical-align: middle; margin-right: 4px; }
+        .owner-info { display: flex; align-items: center; }
+        .contributor-item { display: inline-flex; align-items: center; margin-right: 12px; white-space: nowrap; }
+        .contributor-name { color: #666; font-size: 0.9em; }
     </style>
 </head>
 <body>
@@ -38,7 +43,7 @@
             <a href="index.html">🏆 開發者排名</a>
             <a href="taiwan-projects.html">📂 專案排名</a>
         </div>
-        <div class="stats">更新時間: 2025-08-08 22:59:32 | 專案總數: 3373</div>
+        <div class="stats">更新時間: 2025-08-09 13:48:31 | 專案總數: 100 (顯示前100名)</div>
         <div class="info">
             收錄標準：個人專案擁有者來自台灣，或台灣開發者是該專案的第一貢獻者<br/>
             按照 ⭐ Star 數量降序排列
@@ -63,8 +68,8 @@
                     <td class="stars">253,785</td>
                     <td class="forks">26,072</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/vinta" target="_blank">vinta</a></td>
-                    <td class="contributors"><a href="https://github.com/vinta" target="_blank">vinta</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/vinta.png?size=40" alt="vinta" /><a href="https://github.com/vinta" target="_blank">vinta<br/><span class="contributor-name">Vinta Chen</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/vinta.png?size=20" alt="vinta" /><a href="https://github.com/vinta" target="_blank">vinta<br/><span class="contributor-name">Vinta Chen</span></a></span></td>
                     <td class="reason">專案擁有者 vinta 來自台灣</td>
                 </tr>
                 <tr>
@@ -73,8 +78,8 @@
                     <td class="stars">54,948</td>
                     <td class="forks">14,621</td>
                     <td><span class="language">Kotlin</span></td>
-                    <td><a href="https://github.com/topjohnwu" target="_blank">topjohnwu</a></td>
-                    <td class="contributors"><a href="https://github.com/topjohnwu" target="_blank">topjohnwu</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/topjohnwu.png?size=40" alt="topjohnwu" /><a href="https://github.com/topjohnwu" target="_blank">topjohnwu<br/><span class="contributor-name">John Wu</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/topjohnwu.png?size=20" alt="topjohnwu" /><a href="https://github.com/topjohnwu" target="_blank">topjohnwu<br/><span class="contributor-name">John Wu</span></a></span></td>
                     <td class="reason">專案擁有者 topjohnwu 來自台灣</td>
                 </tr>
                 <tr>
@@ -83,8 +88,8 @@
                     <td class="stars">33,954</td>
                     <td class="forks">4,173</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/yeongpin" target="_blank">yeongpin</a></td>
-                    <td class="contributors"><a href="https://github.com/yeongpin" target="_blank">yeongpin</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/yeongpin.png?size=40" alt="yeongpin" /><a href="https://github.com/yeongpin" target="_blank">yeongpin<br/><span class="contributor-name">Pin Studios</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/yeongpin.png?size=20" alt="yeongpin" /><a href="https://github.com/yeongpin" target="_blank">yeongpin<br/><span class="contributor-name">Pin Studios</span></a></span></td>
                     <td class="reason">專案擁有者 yeongpin 來自台灣</td>
                 </tr>
                 <tr>
@@ -93,8 +98,8 @@
                     <td class="stars">32,407</td>
                     <td class="forks">4,309</td>
                     <td><span class="language">C++</span></td>
-                    <td><a href="https://github.com/qbittorrent" target="_blank">qbittorrent</a></td>
-                    <td class="contributors"><a href="https://github.com/Chocobo1" target="_blank">Chocobo1</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/qbittorrent.png?size=40" alt="qbittorrent" /><a href="https://github.com/qbittorrent" target="_blank">qbittorrent</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/Chocobo1.png?size=20" alt="Chocobo1" /><a href="https://github.com/Chocobo1" target="_blank">Chocobo1</a></span></td>
                     <td class="reason">台灣開發者 Chocobo1 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -103,8 +108,8 @@
                     <td class="stars">14,787</td>
                     <td class="forks">1,232</td>
                     <td>-</td>
-                    <td><a href="https://github.com/chentsulin" target="_blank">chentsulin</a></td>
-                    <td class="contributors"><a href="https://github.com/chentsulin" target="_blank">chentsulin</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/chentsulin.png?size=40" alt="chentsulin" /><a href="https://github.com/chentsulin" target="_blank">chentsulin<br/><span class="contributor-name">C. T. Lin</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/chentsulin.png?size=20" alt="chentsulin" /><a href="https://github.com/chentsulin" target="_blank">chentsulin<br/><span class="contributor-name">C. T. Lin</span></a></span></td>
                     <td class="reason">專案擁有者 chentsulin 來自台灣</td>
                 </tr>
                 <tr>
@@ -113,8 +118,8 @@
                     <td class="stars">14,487</td>
                     <td class="forks">360</td>
                     <td><span class="language">Go</span></td>
-                    <td><a href="https://github.com/yorukot" target="_blank">yorukot</a></td>
-                    <td class="contributors"><a href="https://github.com/yorukot" target="_blank">yorukot</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/yorukot.png?size=40" alt="yorukot" /><a href="https://github.com/yorukot" target="_blank">yorukot<br/><span class="contributor-name">Yorukot</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/yorukot.png?size=20" alt="yorukot" /><a href="https://github.com/yorukot" target="_blank">yorukot<br/><span class="contributor-name">Yorukot</span></a></span></td>
                     <td class="reason">專案擁有者 yorukot 來自台灣</td>
                 </tr>
                 <tr>
@@ -123,8 +128,8 @@
                     <td class="stars">13,252</td>
                     <td class="forks">4,545</td>
                     <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/ikatyang" target="_blank">ikatyang</a></td>
-                    <td class="contributors"><a href="https://github.com/ikatyang" target="_blank">ikatyang</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/ikatyang.png?size=40" alt="ikatyang" /><a href="https://github.com/ikatyang" target="_blank">ikatyang<br/><span class="contributor-name">Ika</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/ikatyang.png?size=20" alt="ikatyang" /><a href="https://github.com/ikatyang" target="_blank">ikatyang<br/><span class="contributor-name">Ika</span></a></span></td>
                     <td class="reason">專案擁有者 ikatyang 來自台灣</td>
                 </tr>
                 <tr>
@@ -133,8 +138,8 @@
                     <td class="stars">12,285</td>
                     <td class="forks">1,722</td>
                     <td>-</td>
-                    <td><a href="https://github.com/qazbnm456" target="_blank">qazbnm456</a></td>
-                    <td class="contributors"><a href="https://github.com/qazbnm456" target="_blank">qazbnm456</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/qazbnm456.png?size=40" alt="qazbnm456" /><a href="https://github.com/qazbnm456" target="_blank">qazbnm456<br/><span class="contributor-name">Boik</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/qazbnm456.png?size=20" alt="qazbnm456" /><a href="https://github.com/qazbnm456" target="_blank">qazbnm456<br/><span class="contributor-name">Boik</span></a></span></td>
                     <td class="reason">專案擁有者 qazbnm456 來自台灣</td>
                 </tr>
                 <tr>
@@ -143,8 +148,8 @@
                     <td class="stars">12,054</td>
                     <td class="forks">1,290</td>
                     <td><span class="language">Go</span></td>
-                    <td><a href="https://github.com/swaggo" target="_blank">swaggo</a></td>
-                    <td class="contributors"><a href="https://github.com/easonlin404" target="_blank">easonlin404</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/swaggo.png?size=40" alt="swaggo" /><a href="https://github.com/swaggo" target="_blank">swaggo</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/easonlin404.png?size=20" alt="easonlin404" /><a href="https://github.com/easonlin404" target="_blank">easonlin404<br/><span class="contributor-name">Eason Lin</span></a></span></td>
                     <td class="reason">台灣開發者 easonlin404 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -153,8 +158,8 @@
                     <td class="stars">10,517</td>
                     <td class="forks">637</td>
                     <td>-</td>
-                    <td><a href="https://github.com/onceupon" target="_blank">onceupon</a></td>
-                    <td class="contributors"><a href="https://github.com/onceupon" target="_blank">onceupon</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/onceupon.png?size=40" alt="onceupon" /><a href="https://github.com/onceupon" target="_blank">onceupon<br/><span class="contributor-name">Bonnie I-Man Ng</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/onceupon.png?size=20" alt="onceupon" /><a href="https://github.com/onceupon" target="_blank">onceupon<br/><span class="contributor-name">Bonnie I-Man Ng</span></a></span></td>
                     <td class="reason">專案擁有者 onceupon 來自台灣</td>
                 </tr>
                 <tr>
@@ -163,8 +168,8 @@
                     <td class="stars">10,454</td>
                     <td class="forks">817</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/jhen0409" target="_blank">jhen0409</a></td>
-                    <td class="contributors"><a href="https://github.com/jhen0409" target="_blank">jhen0409</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/jhen0409.png?size=40" alt="jhen0409" /><a href="https://github.com/jhen0409" target="_blank">jhen0409<br/><span class="contributor-name">Jhen-Jie Hong</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/jhen0409.png?size=20" alt="jhen0409" /><a href="https://github.com/jhen0409" target="_blank">jhen0409<br/><span class="contributor-name">Jhen-Jie Hong</span></a></span></td>
                     <td class="reason">專案擁有者 jhen0409 來自台灣</td>
                 </tr>
                 <tr>
@@ -173,8 +178,8 @@
                     <td class="stars">9,581</td>
                     <td class="forks">1,095</td>
                     <td><span class="language">Rich Text Format</span></td>
-                    <td><a href="https://github.com/MacDownApp" target="_blank">MacDownApp</a></td>
-                    <td class="contributors"><a href="https://github.com/uranusjr" target="_blank">uranusjr</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/MacDownApp.png?size=40" alt="MacDownApp" /><a href="https://github.com/MacDownApp" target="_blank">MacDownApp</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/uranusjr.png?size=20" alt="uranusjr" /><a href="https://github.com/uranusjr" target="_blank">uranusjr<br/><span class="contributor-name">Tzu-ping Chung</span></a></span></td>
                     <td class="reason">台灣開發者 uranusjr 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -183,8 +188,8 @@
                     <td class="stars">9,544</td>
                     <td class="forks">968</td>
                     <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/Canner" target="_blank">Canner</a></td>
-                    <td class="contributors"><a href="https://github.com/cyyeh" target="_blank">cyyeh</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/Canner.png?size=40" alt="Canner" /><a href="https://github.com/Canner" target="_blank">Canner</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/cyyeh.png?size=20" alt="cyyeh" /><a href="https://github.com/cyyeh" target="_blank">cyyeh<br/><span class="contributor-name">Chih-Yu Yeh</span></a></span></td>
                     <td class="reason">台灣開發者 cyyeh 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -193,8 +198,8 @@
                     <td class="stars">9,324</td>
                     <td class="forks">2,034</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/jadore801120" target="_blank">jadore801120</a></td>
-                    <td class="contributors"><a href="https://github.com/jadore801120" target="_blank">jadore801120</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/jadore801120.png?size=40" alt="jadore801120" /><a href="https://github.com/jadore801120" target="_blank">jadore801120<br/><span class="contributor-name">Yu-Hsiang Huang</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/jadore801120.png?size=20" alt="jadore801120" /><a href="https://github.com/jadore801120" target="_blank">jadore801120<br/><span class="contributor-name">Yu-Hsiang Huang</span></a></span></td>
                     <td class="reason">專案擁有者 jadore801120 來自台灣</td>
                 </tr>
                 <tr>
@@ -203,8 +208,8 @@
                     <td class="stars">9,189</td>
                     <td class="forks">1,880</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/hoochanlon" target="_blank">hoochanlon</a></td>
-                    <td class="contributors"><a href="https://github.com/hoochanlon" target="_blank">hoochanlon</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/hoochanlon.png?size=40" alt="hoochanlon" /><a href="https://github.com/hoochanlon" target="_blank">hoochanlon<br/><span class="contributor-name">123456</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/hoochanlon.png?size=20" alt="hoochanlon" /><a href="https://github.com/hoochanlon" target="_blank">hoochanlon<br/><span class="contributor-name">123456</span></a></span></td>
                     <td class="reason">專案擁有者 hoochanlon 來自台灣</td>
                 </tr>
                 <tr>
@@ -213,8 +218,8 @@
                     <td class="stars">8,956</td>
                     <td class="forks">578</td>
                     <td>-</td>
-                    <td><a href="https://github.com/emacs-tw" target="_blank">emacs-tw</a></td>
-                    <td class="contributors"><a href="https://github.com/kuanyui" target="_blank">kuanyui</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/emacs-tw.png?size=40" alt="emacs-tw" /><a href="https://github.com/emacs-tw" target="_blank">emacs-tw</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/kuanyui.png?size=20" alt="kuanyui" /><a href="https://github.com/kuanyui" target="_blank">kuanyui<br/><span class="contributor-name">クエン酸</span></a></span></td>
                     <td class="reason">台灣開發者 kuanyui 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -223,8 +228,8 @@
                     <td class="stars">8,739</td>
                     <td class="forks">388</td>
                     <td><span class="language">Go</span></td>
-                    <td><a href="https://github.com/maxence-charriere" target="_blank">maxence-charriere</a></td>
-                    <td class="contributors"><a href="https://github.com/maxence-charriere" target="_blank">maxence-charriere</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/maxence-charriere.png?size=40" alt="maxence-charriere" /><a href="https://github.com/maxence-charriere" target="_blank">maxence-charriere<br/><span class="contributor-name">Maxence Charriere</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/maxence-charriere.png?size=20" alt="maxence-charriere" /><a href="https://github.com/maxence-charriere" target="_blank">maxence-charriere<br/><span class="contributor-name">Maxence Charriere</span></a></span></td>
                     <td class="reason">專案擁有者 maxence-charriere 來自台灣</td>
                 </tr>
                 <tr>
@@ -233,8 +238,8 @@
                     <td class="stars">8,504</td>
                     <td class="forks">2,113</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/eternnoir" target="_blank">eternnoir</a></td>
-                    <td class="contributors"><a href="https://github.com/eternnoir" target="_blank">eternnoir</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/eternnoir.png?size=40" alt="eternnoir" /><a href="https://github.com/eternnoir" target="_blank">eternnoir<br/><span class="contributor-name">FrankWang</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/eternnoir.png?size=20" alt="eternnoir" /><a href="https://github.com/eternnoir" target="_blank">eternnoir<br/><span class="contributor-name">FrankWang</span></a></span></td>
                     <td class="reason">專案擁有者 eternnoir 來自台灣</td>
                 </tr>
                 <tr>
@@ -243,8 +248,8 @@
                     <td class="stars">8,456</td>
                     <td class="forks">867</td>
                     <td><span class="language">Go</span></td>
-                    <td><a href="https://github.com/appleboy" target="_blank">appleboy</a></td>
-                    <td class="contributors"><a href="https://github.com/appleboy" target="_blank">appleboy</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/appleboy.png?size=40" alt="appleboy" /><a href="https://github.com/appleboy" target="_blank">appleboy<br/><span class="contributor-name">Bo-Yi Wu</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/appleboy.png?size=20" alt="appleboy" /><a href="https://github.com/appleboy" target="_blank">appleboy<br/><span class="contributor-name">Bo-Yi Wu</span></a></span></td>
                     <td class="reason">專案擁有者 appleboy 來自台灣</td>
                 </tr>
                 <tr>
@@ -253,8 +258,8 @@
                     <td class="stars">7,962</td>
                     <td class="forks">862</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/lanpa" target="_blank">lanpa</a></td>
-                    <td class="contributors"><a href="https://github.com/lanpa" target="_blank">lanpa</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/lanpa.png?size=40" alt="lanpa" /><a href="https://github.com/lanpa" target="_blank">lanpa<br/><span class="contributor-name">Tzu-Wei Huang</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/lanpa.png?size=20" alt="lanpa" /><a href="https://github.com/lanpa" target="_blank">lanpa<br/><span class="contributor-name">Tzu-Wei Huang</span></a></span></td>
                     <td class="reason">專案擁有者 lanpa 來自台灣</td>
                 </tr>
                 <tr>
@@ -263,8 +268,8 @@
                     <td class="stars">7,703</td>
                     <td class="forks">9,859</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/memochou1993" target="_blank">memochou1993</a></td>
-                    <td class="contributors"><a href="https://github.com/memochou1993" target="_blank">memochou1993</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/memochou1993.png?size=40" alt="memochou1993" /><a href="https://github.com/memochou1993" target="_blank">memochou1993<br/><span class="contributor-name">Memo Chou</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/memochou1993.png?size=20" alt="memochou1993" /><a href="https://github.com/memochou1993" target="_blank">memochou1993<br/><span class="contributor-name">Memo Chou</span></a></span></td>
                     <td class="reason">專案擁有者 memochou1993 來自台灣</td>
                 </tr>
                 <tr>
@@ -273,8 +278,8 @@
                     <td class="stars">7,358</td>
                     <td class="forks">1,345</td>
                     <td><span class="language">Java</span></td>
-                    <td><a href="https://github.com/leolin310148" target="_blank">leolin310148</a></td>
-                    <td class="contributors"><a href="https://github.com/leolin310148" target="_blank">leolin310148</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/leolin310148.png?size=40" alt="leolin310148" /><a href="https://github.com/leolin310148" target="_blank">leolin310148<br/><span class="contributor-name">Leo Lin</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/leolin310148.png?size=20" alt="leolin310148" /><a href="https://github.com/leolin310148" target="_blank">leolin310148<br/><span class="contributor-name">Leo Lin</span></a></span></td>
                     <td class="reason">專案擁有者 leolin310148 來自台灣</td>
                 </tr>
                 <tr>
@@ -283,8 +288,8 @@
                     <td class="stars">6,302</td>
                     <td class="forks">2,000</td>
                     <td><span class="language">Java</span></td>
-                    <td><a href="https://github.com/FongMi" target="_blank">FongMi</a></td>
-                    <td class="contributors"><a href="https://github.com/FongMi" target="_blank">FongMi</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/FongMi.png?size=40" alt="FongMi" /><a href="https://github.com/FongMi" target="_blank">FongMi</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/FongMi.png?size=20" alt="FongMi" /><a href="https://github.com/FongMi" target="_blank">FongMi</a></span></td>
                     <td class="reason">專案擁有者 FongMi 來自台灣</td>
                 </tr>
                 <tr>
@@ -293,8 +298,8 @@
                     <td class="stars">5,612</td>
                     <td class="forks">637</td>
                     <td><span class="language">Shell</span></td>
-                    <td><a href="https://github.com/appleboy" target="_blank">appleboy</a></td>
-                    <td class="contributors"><a href="https://github.com/appleboy" target="_blank">appleboy</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/appleboy.png?size=40" alt="appleboy" /><a href="https://github.com/appleboy" target="_blank">appleboy<br/><span class="contributor-name">Bo-Yi Wu</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/appleboy.png?size=20" alt="appleboy" /><a href="https://github.com/appleboy" target="_blank">appleboy<br/><span class="contributor-name">Bo-Yi Wu</span></a></span></td>
                     <td class="reason">專案擁有者 appleboy 來自台灣</td>
                 </tr>
                 <tr>
@@ -303,8 +308,8 @@
                     <td class="stars">5,593</td>
                     <td class="forks">360</td>
                     <td><span class="language">Kotlin</span></td>
-                    <td><a href="https://github.com/z-huang" target="_blank">z-huang</a></td>
-                    <td class="contributors"><a href="https://github.com/z-huang" target="_blank">z-huang</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/z-huang.png?size=40" alt="z-huang" /><a href="https://github.com/z-huang" target="_blank">z-huang<br/><span class="contributor-name">Zion Huang</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/z-huang.png?size=20" alt="z-huang" /><a href="https://github.com/z-huang" target="_blank">z-huang<br/><span class="contributor-name">Zion Huang</span></a></span></td>
                     <td class="reason">專案擁有者 z-huang 來自台灣</td>
                 </tr>
                 <tr>
@@ -313,8 +318,8 @@
                     <td class="stars">5,496</td>
                     <td class="forks">370</td>
                     <td><span class="language">Makefile</span></td>
-                    <td><a href="https://github.com/phpbrew" target="_blank">phpbrew</a></td>
-                    <td class="contributors"><a href="https://github.com/c9s" target="_blank">c9s</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/phpbrew.png?size=40" alt="phpbrew" /><a href="https://github.com/phpbrew" target="_blank">phpbrew</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/c9s.png?size=20" alt="c9s" /><a href="https://github.com/c9s" target="_blank">c9s</a></span></td>
                     <td class="reason">台灣開發者 c9s 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -323,8 +328,8 @@
                     <td class="stars">5,258</td>
                     <td class="forks">671</td>
                     <td>-</td>
-                    <td><a href="https://github.com/miaomiaosoft" target="_blank">miaomiaosoft</a></td>
-                    <td class="contributors"><a href="https://github.com/miaomiaosoft" target="_blank">miaomiaosoft</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/miaomiaosoft.png?size=40" alt="miaomiaosoft" /><a href="https://github.com/miaomiaosoft" target="_blank">miaomiaosoft<br/><span class="contributor-name">miao_miao</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/miaomiaosoft.png?size=20" alt="miaomiaosoft" /><a href="https://github.com/miaomiaosoft" target="_blank">miaomiaosoft<br/><span class="contributor-name">miao_miao</span></a></span></td>
                     <td class="reason">專案擁有者 miaomiaosoft 來自台灣</td>
                 </tr>
                 <tr>
@@ -333,8 +338,8 @@
                     <td class="stars">4,994</td>
                     <td class="forks">1,103</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/victoresque" target="_blank">victoresque</a></td>
-                    <td class="contributors"><a href="https://github.com/victoresque" target="_blank">victoresque</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/victoresque.png?size=40" alt="victoresque" /><a href="https://github.com/victoresque" target="_blank">victoresque<br/><span class="contributor-name">Victor Huang</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/victoresque.png?size=20" alt="victoresque" /><a href="https://github.com/victoresque" target="_blank">victoresque<br/><span class="contributor-name">Victor Huang</span></a></span></td>
                     <td class="reason">專案擁有者 victoresque 來自台灣</td>
                 </tr>
                 <tr>
@@ -343,8 +348,8 @@
                     <td class="stars">4,913</td>
                     <td class="forks">497</td>
                     <td>-</td>
-                    <td><a href="https://github.com/cmhungsteve" target="_blank">cmhungsteve</a></td>
-                    <td class="contributors"><a href="https://github.com/cmhungsteve" target="_blank">cmhungsteve</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/cmhungsteve.png?size=40" alt="cmhungsteve" /><a href="https://github.com/cmhungsteve" target="_blank">cmhungsteve<br/><span class="contributor-name">Min-Hung (Steve) Chen</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/cmhungsteve.png?size=20" alt="cmhungsteve" /><a href="https://github.com/cmhungsteve" target="_blank">cmhungsteve<br/><span class="contributor-name">Min-Hung (Steve) Chen</span></a></span></td>
                     <td class="reason">專案擁有者 cmhungsteve 來自台灣</td>
                 </tr>
                 <tr>
@@ -353,8 +358,8 @@
                     <td class="stars">4,628</td>
                     <td class="forks">932</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/tomchentw" target="_blank">tomchentw</a></td>
-                    <td class="contributors"><a href="https://github.com/tomchentw" target="_blank">tomchentw</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/tomchentw.png?size=40" alt="tomchentw" /><a href="https://github.com/tomchentw" target="_blank">tomchentw<br/><span class="contributor-name">Tom Chen</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/tomchentw.png?size=20" alt="tomchentw" /><a href="https://github.com/tomchentw" target="_blank">tomchentw<br/><span class="contributor-name">Tom Chen</span></a></span></td>
                     <td class="reason">專案擁有者 tomchentw 來自台灣</td>
                 </tr>
                 <tr>
@@ -363,8 +368,8 @@
                     <td class="stars">4,580</td>
                     <td class="forks">698</td>
                     <td><span class="language">Objective-C</span></td>
-                    <td><a href="https://github.com/chiahsien" target="_blank">chiahsien</a></td>
-                    <td class="contributors"><a href="https://github.com/chiahsien" target="_blank">chiahsien</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/chiahsien.png?size=40" alt="chiahsien" /><a href="https://github.com/chiahsien" target="_blank">chiahsien<br/><span class="contributor-name">Nelson</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/chiahsien.png?size=20" alt="chiahsien" /><a href="https://github.com/chiahsien" target="_blank">chiahsien<br/><span class="contributor-name">Nelson</span></a></span></td>
                     <td class="reason">專案擁有者 chiahsien 來自台灣</td>
                 </tr>
                 <tr>
@@ -373,8 +378,8 @@
                     <td class="stars">4,576</td>
                     <td class="forks">301</td>
                     <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/vinta" target="_blank">vinta</a></td>
-                    <td class="contributors"><a href="https://github.com/vinta" target="_blank">vinta</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/vinta.png?size=40" alt="vinta" /><a href="https://github.com/vinta" target="_blank">vinta<br/><span class="contributor-name">Vinta Chen</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/vinta.png?size=20" alt="vinta" /><a href="https://github.com/vinta" target="_blank">vinta<br/><span class="contributor-name">Vinta Chen</span></a></span></td>
                     <td class="reason">專案擁有者 vinta 來自台灣</td>
                 </tr>
                 <tr>
@@ -383,8 +388,8 @@
                     <td class="stars">4,572</td>
                     <td class="forks">679</td>
                     <td><span class="language">Batchfile</span></td>
-                    <td><a href="https://github.com/FongMi" target="_blank">FongMi</a></td>
-                    <td class="contributors"><a href="https://github.com/FongMi" target="_blank">FongMi</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/FongMi.png?size=40" alt="FongMi" /><a href="https://github.com/FongMi" target="_blank">FongMi</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/FongMi.png?size=20" alt="FongMi" /><a href="https://github.com/FongMi" target="_blank">FongMi</a></span></td>
                     <td class="reason">專案擁有者 FongMi 來自台灣</td>
                 </tr>
                 <tr>
@@ -393,8 +398,8 @@
                     <td class="stars">4,407</td>
                     <td class="forks">301</td>
                     <td><span class="language">Elixir</span></td>
-                    <td><a href="https://github.com/christopheradams" target="_blank">christopheradams</a></td>
-                    <td class="contributors"><a href="https://github.com/christopheradams" target="_blank">christopheradams</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/christopheradams.png?size=40" alt="christopheradams" /><a href="https://github.com/christopheradams" target="_blank">christopheradams<br/><span class="contributor-name">Christopher Adams</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/christopheradams.png?size=20" alt="christopheradams" /><a href="https://github.com/christopheradams" target="_blank">christopheradams<br/><span class="contributor-name">Christopher Adams</span></a></span></td>
                     <td class="reason">專案擁有者 christopheradams 來自台灣</td>
                 </tr>
                 <tr>
@@ -403,8 +408,8 @@
                     <td class="stars">4,347</td>
                     <td class="forks">1,216</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/kdchang" target="_blank">kdchang</a></td>
-                    <td class="contributors"><a href="https://github.com/kdchang" target="_blank">kdchang</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/kdchang.png?size=40" alt="kdchang" /><a href="https://github.com/kdchang" target="_blank">kdchang<br/><span class="contributor-name">KD Chang</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/kdchang.png?size=20" alt="kdchang" /><a href="https://github.com/kdchang" target="_blank">kdchang<br/><span class="contributor-name">KD Chang</span></a></span></td>
                     <td class="reason">專案擁有者 kdchang 來自台灣</td>
                 </tr>
                 <tr>
@@ -413,8 +418,8 @@
                     <td class="stars">4,313</td>
                     <td class="forks">228</td>
                     <td><span class="language">HTML</span></td>
-                    <td><a href="https://github.com/tobychui" target="_blank">tobychui</a></td>
-                    <td class="contributors"><a href="https://github.com/tobychui" target="_blank">tobychui</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/tobychui.png?size=40" alt="tobychui" /><a href="https://github.com/tobychui" target="_blank">tobychui<br/><span class="contributor-name">Toby Chui</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/tobychui.png?size=20" alt="tobychui" /><a href="https://github.com/tobychui" target="_blank">tobychui<br/><span class="contributor-name">Toby Chui</span></a></span></td>
                     <td class="reason">專案擁有者 tobychui 來自台灣</td>
                 </tr>
                 <tr>
@@ -423,8 +428,8 @@
                     <td class="stars">4,152</td>
                     <td class="forks">2,019</td>
                     <td>-</td>
-                    <td><a href="https://github.com/doggy8088" target="_blank">doggy8088</a></td>
-                    <td class="contributors"><a href="https://github.com/doggy8088" target="_blank">doggy8088</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/doggy8088.png?size=40" alt="doggy8088" /><a href="https://github.com/doggy8088" target="_blank">doggy8088<br/><span class="contributor-name">Will 保哥</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/doggy8088.png?size=20" alt="doggy8088" /><a href="https://github.com/doggy8088" target="_blank">doggy8088<br/><span class="contributor-name">Will 保哥</span></a></span></td>
                     <td class="reason">專案擁有者 doggy8088 來自台灣</td>
                 </tr>
                 <tr>
@@ -433,8 +438,8 @@
                     <td class="stars">4,137</td>
                     <td class="forks">1,472</td>
                     <td><span class="language">HTML</span></td>
-                    <td><a href="https://github.com/fcwu" target="_blank">fcwu</a></td>
-                    <td class="contributors"><a href="https://github.com/fcwu" target="_blank">fcwu</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/fcwu.png?size=40" alt="fcwu" /><a href="https://github.com/fcwu" target="_blank">fcwu<br/><span class="contributor-name">Doro Wu</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/fcwu.png?size=20" alt="fcwu" /><a href="https://github.com/fcwu" target="_blank">fcwu<br/><span class="contributor-name">Doro Wu</span></a></span></td>
                     <td class="reason">專案擁有者 fcwu 來自台灣</td>
                 </tr>
                 <tr>
@@ -443,8 +448,8 @@
                     <td class="stars">4,046</td>
                     <td class="forks">287</td>
                     <td><span class="language">Go</span></td>
-                    <td><a href="https://github.com/swaggo" target="_blank">swaggo</a></td>
-                    <td class="contributors"><a href="https://github.com/easonlin404" target="_blank">easonlin404</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/swaggo.png?size=40" alt="swaggo" /><a href="https://github.com/swaggo" target="_blank">swaggo</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/easonlin404.png?size=20" alt="easonlin404" /><a href="https://github.com/easonlin404" target="_blank">easonlin404<br/><span class="contributor-name">Eason Lin</span></a></span></td>
                     <td class="reason">台灣開發者 easonlin404 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -453,8 +458,8 @@
                     <td class="stars">4,041</td>
                     <td class="forks">392</td>
                     <td><span class="language">PHP</span></td>
-                    <td><a href="https://github.com/swooletw" target="_blank">swooletw</a></td>
-                    <td class="contributors"><a href="https://github.com/albertcht" target="_blank">albertcht</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/swooletw.png?size=40" alt="swooletw" /><a href="https://github.com/swooletw" target="_blank">swooletw</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/albertcht.png?size=20" alt="albertcht" /><a href="https://github.com/albertcht" target="_blank">albertcht<br/><span class="contributor-name">Albert Chen</span></a></span></td>
                     <td class="reason">台灣開發者 albertcht 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -463,8 +468,8 @@
                     <td class="stars">4,037</td>
                     <td class="forks">1,192</td>
                     <td><span class="language">Shell</span></td>
-                    <td><a href="https://github.com/hoochanlon" target="_blank">hoochanlon</a></td>
-                    <td class="contributors"><a href="https://github.com/hoochanlon" target="_blank">hoochanlon</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/hoochanlon.png?size=40" alt="hoochanlon" /><a href="https://github.com/hoochanlon" target="_blank">hoochanlon<br/><span class="contributor-name">123456</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/hoochanlon.png?size=20" alt="hoochanlon" /><a href="https://github.com/hoochanlon" target="_blank">hoochanlon<br/><span class="contributor-name">123456</span></a></span></td>
                     <td class="reason">專案擁有者 hoochanlon 來自台灣</td>
                 </tr>
                 <tr>
@@ -473,8 +478,8 @@
                     <td class="stars">3,684</td>
                     <td class="forks">467</td>
                     <td><span class="language">Go</span></td>
-                    <td><a href="https://github.com/kkdai" target="_blank">kkdai</a></td>
-                    <td class="contributors"><a href="https://github.com/kkdai" target="_blank">kkdai</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/kkdai.png?size=40" alt="kkdai" /><a href="https://github.com/kkdai" target="_blank">kkdai<br/><span class="contributor-name">Evan Lin</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/kkdai.png?size=20" alt="kkdai" /><a href="https://github.com/kkdai" target="_blank">kkdai<br/><span class="contributor-name">Evan Lin</span></a></span></td>
                     <td class="reason">專案擁有者 kkdai 來自台灣</td>
                 </tr>
                 <tr>
@@ -483,8 +488,8 @@
                     <td class="stars">3,427</td>
                     <td class="forks">724</td>
                     <td>-</td>
-                    <td><a href="https://github.com/qazbnm456" target="_blank">qazbnm456</a></td>
-                    <td class="contributors"><a href="https://github.com/qazbnm456" target="_blank">qazbnm456</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/qazbnm456.png?size=40" alt="qazbnm456" /><a href="https://github.com/qazbnm456" target="_blank">qazbnm456<br/><span class="contributor-name">Boik</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/qazbnm456.png?size=20" alt="qazbnm456" /><a href="https://github.com/qazbnm456" target="_blank">qazbnm456<br/><span class="contributor-name">Boik</span></a></span></td>
                     <td class="reason">專案擁有者 qazbnm456 來自台灣</td>
                 </tr>
                 <tr>
@@ -493,8 +498,8 @@
                     <td class="stars">3,358</td>
                     <td class="forks">286</td>
                     <td><span class="language">Pascal</span></td>
-                    <td><a href="https://github.com/transmission-remote-gui" target="_blank">transmission-remote-gui</a></td>
-                    <td class="contributors"><a href="https://github.com/PeterDaveHello" target="_blank">PeterDaveHello</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/transmission-remote-gui.png?size=40" alt="transmission-remote-gui" /><a href="https://github.com/transmission-remote-gui" target="_blank">transmission-remote-gui</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/PeterDaveHello.png?size=20" alt="PeterDaveHello" /><a href="https://github.com/PeterDaveHello" target="_blank">PeterDaveHello<br/><span class="contributor-name">Peter Dave Hello</span></a></span></td>
                     <td class="reason">台灣開發者 PeterDaveHello 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -503,8 +508,8 @@
                     <td class="stars">3,289</td>
                     <td class="forks">46</td>
                     <td><span class="language">Lua</span></td>
-                    <td><a href="https://github.com/m4xshen" target="_blank">m4xshen</a></td>
-                    <td class="contributors"><a href="https://github.com/m4xshen" target="_blank">m4xshen</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/m4xshen.png?size=40" alt="m4xshen" /><a href="https://github.com/m4xshen" target="_blank">m4xshen<br/><span class="contributor-name">Max Shen</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/m4xshen.png?size=20" alt="m4xshen" /><a href="https://github.com/m4xshen" target="_blank">m4xshen<br/><span class="contributor-name">Max Shen</span></a></span></td>
                     <td class="reason">專案擁有者 m4xshen 來自台灣</td>
                 </tr>
                 <tr>
@@ -513,8 +518,8 @@
                     <td class="stars">3,180</td>
                     <td class="forks">382</td>
                     <td><span class="language">C#</span></td>
-                    <td><a href="https://github.com/mini-software" target="_blank">mini-software</a></td>
-                    <td class="contributors"><a href="https://github.com/shps951023" target="_blank">shps951023</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/mini-software.png?size=40" alt="mini-software" /><a href="https://github.com/mini-software" target="_blank">mini-software</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/shps951023.png?size=20" alt="shps951023" /><a href="https://github.com/shps951023" target="_blank">shps951023<br/><span class="contributor-name">Wei Lin</span></a></span></td>
                     <td class="reason">台灣開發者 shps951023 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -523,8 +528,8 @@
                     <td class="stars">3,043</td>
                     <td class="forks">376</td>
                     <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/vn7n24fzkq" target="_blank">vn7n24fzkq</a></td>
-                    <td class="contributors"><a href="https://github.com/vn7n24fzkq" target="_blank">vn7n24fzkq</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/vn7n24fzkq.png?size=40" alt="vn7n24fzkq" /><a href="https://github.com/vn7n24fzkq" target="_blank">vn7n24fzkq<br/><span class="contributor-name">Casper</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/vn7n24fzkq.png?size=20" alt="vn7n24fzkq" /><a href="https://github.com/vn7n24fzkq" target="_blank">vn7n24fzkq<br/><span class="contributor-name">Casper</span></a></span></td>
                     <td class="reason">專案擁有者 vn7n24fzkq 來自台灣</td>
                 </tr>
                 <tr>
@@ -533,8 +538,8 @@
                     <td class="stars">2,999</td>
                     <td class="forks">549</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/audreyt" target="_blank">audreyt</a></td>
-                    <td class="contributors"><a href="https://github.com/audreyt" target="_blank">audreyt</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/audreyt.png?size=40" alt="audreyt" /><a href="https://github.com/audreyt" target="_blank">audreyt<br/><span class="contributor-name">唐鳳</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/audreyt.png?size=20" alt="audreyt" /><a href="https://github.com/audreyt" target="_blank">audreyt<br/><span class="contributor-name">唐鳳</span></a></span></td>
                     <td class="reason">專案擁有者 audreyt 來自台灣</td>
                 </tr>
                 <tr>
@@ -543,8 +548,8 @@
                     <td class="stars">2,990</td>
                     <td class="forks">246</td>
                     <td><span class="language">C++</span></td>
-                    <td><a href="https://github.com/guillaumechereau" target="_blank">guillaumechereau</a></td>
-                    <td class="contributors"><a href="https://github.com/guillaumechereau" target="_blank">guillaumechereau</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/guillaumechereau.png?size=40" alt="guillaumechereau" /><a href="https://github.com/guillaumechereau" target="_blank">guillaumechereau<br/><span class="contributor-name">Guillaume Chereau</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/guillaumechereau.png?size=20" alt="guillaumechereau" /><a href="https://github.com/guillaumechereau" target="_blank">guillaumechereau<br/><span class="contributor-name">Guillaume Chereau</span></a></span></td>
                     <td class="reason">專案擁有者 guillaumechereau 來自台灣</td>
                 </tr>
                 <tr>
@@ -553,8 +558,8 @@
                     <td class="stars">2,878</td>
                     <td class="forks">390</td>
                     <td><span class="language">Go</span></td>
-                    <td><a href="https://github.com/appleboy" target="_blank">appleboy</a></td>
-                    <td class="contributors"><a href="https://github.com/appleboy" target="_blank">appleboy</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/appleboy.png?size=40" alt="appleboy" /><a href="https://github.com/appleboy" target="_blank">appleboy<br/><span class="contributor-name">Bo-Yi Wu</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/appleboy.png?size=20" alt="appleboy" /><a href="https://github.com/appleboy" target="_blank">appleboy<br/><span class="contributor-name">Bo-Yi Wu</span></a></span></td>
                     <td class="reason">專案擁有者 appleboy 來自台灣</td>
                 </tr>
                 <tr>
@@ -563,8 +568,8 @@
                     <td class="stars">2,819</td>
                     <td class="forks">563</td>
                     <td><span class="language">Ruby</span></td>
-                    <td><a href="https://github.com/w181496" target="_blank">w181496</a></td>
-                    <td class="contributors"><a href="https://github.com/w181496" target="_blank">w181496</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/w181496.png?size=40" alt="w181496" /><a href="https://github.com/w181496" target="_blank">w181496<br/><span class="contributor-name">Kaibro</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/w181496.png?size=20" alt="w181496" /><a href="https://github.com/w181496" target="_blank">w181496<br/><span class="contributor-name">Kaibro</span></a></span></td>
                     <td class="reason">專案擁有者 w181496 來自台灣</td>
                 </tr>
                 <tr>
@@ -573,8 +578,8 @@
                     <td class="stars">2,798</td>
                     <td class="forks">481</td>
                     <td><span class="language">Jupyter Notebook</span></td>
-                    <td><a href="https://github.com/kwea123" target="_blank">kwea123</a></td>
-                    <td class="contributors"><a href="https://github.com/kwea123" target="_blank">kwea123</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/kwea123.png?size=40" alt="kwea123" /><a href="https://github.com/kwea123" target="_blank">kwea123<br/><span class="contributor-name">AI葵</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/kwea123.png?size=20" alt="kwea123" /><a href="https://github.com/kwea123" target="_blank">kwea123<br/><span class="contributor-name">AI葵</span></a></span></td>
                     <td class="reason">專案擁有者 kwea123 來自台灣</td>
                 </tr>
                 <tr>
@@ -583,8 +588,8 @@
                     <td class="stars">2,717</td>
                     <td class="forks">716</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/Zero6992" target="_blank">Zero6992</a></td>
-                    <td class="contributors"><a href="https://github.com/Zero6992" target="_blank">Zero6992</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/Zero6992.png?size=40" alt="Zero6992" /><a href="https://github.com/Zero6992" target="_blank">Zero6992</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/Zero6992.png?size=20" alt="Zero6992" /><a href="https://github.com/Zero6992" target="_blank">Zero6992</a></span></td>
                     <td class="reason">專案擁有者 Zero6992 來自台灣</td>
                 </tr>
                 <tr>
@@ -593,8 +598,8 @@
                     <td class="stars">2,612</td>
                     <td class="forks">504</td>
                     <td>-</td>
-                    <td><a href="https://github.com/chihming" target="_blank">chihming</a></td>
-                    <td class="contributors"><a href="https://github.com/chihming" target="_blank">chihming</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/chihming.png?size=40" alt="chihming" /><a href="https://github.com/chihming" target="_blank">chihming<br/><span class="contributor-name">Chih-Ming Chen</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/chihming.png?size=20" alt="chihming" /><a href="https://github.com/chihming" target="_blank">chihming<br/><span class="contributor-name">Chih-Ming Chen</span></a></span></td>
                     <td class="reason">專案擁有者 chihming 來自台灣</td>
                 </tr>
                 <tr>
@@ -603,8 +608,8 @@
                     <td class="stars">2,444</td>
                     <td class="forks">507</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/s3prl" target="_blank">s3prl</a></td>
-                    <td class="contributors"><a href="https://github.com/leo19941227" target="_blank">leo19941227</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/s3prl.png?size=40" alt="s3prl" /><a href="https://github.com/s3prl" target="_blank">s3prl</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/leo19941227.png?size=20" alt="leo19941227" /><a href="https://github.com/leo19941227" target="_blank">leo19941227<br/><span class="contributor-name">Shu-wen Yang</span></a></span></td>
                     <td class="reason">台灣開發者 leo19941227 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -613,8 +618,8 @@
                     <td class="stars">2,435</td>
                     <td class="forks">547</td>
                     <td><span class="language">Jupyter Notebook</span></td>
-                    <td><a href="https://github.com/virginiakm1988" target="_blank">virginiakm1988</a></td>
-                    <td class="contributors"><a href="https://github.com/virginiakm1988" target="_blank">virginiakm1988</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/virginiakm1988.png?size=40" alt="virginiakm1988" /><a href="https://github.com/virginiakm1988" target="_blank">virginiakm1988<br/><span class="contributor-name">Zih-Ching Chen</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/virginiakm1988.png?size=20" alt="virginiakm1988" /><a href="https://github.com/virginiakm1988" target="_blank">virginiakm1988<br/><span class="contributor-name">Zih-Ching Chen</span></a></span></td>
                     <td class="reason">專案擁有者 virginiakm1988 來自台灣</td>
                 </tr>
                 <tr>
@@ -623,8 +628,8 @@
                     <td class="stars">2,382</td>
                     <td class="forks">162</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/KohakuBlueleaf" target="_blank">KohakuBlueleaf</a></td>
-                    <td class="contributors"><a href="https://github.com/KohakuBlueleaf" target="_blank">KohakuBlueleaf</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/KohakuBlueleaf.png?size=40" alt="KohakuBlueleaf" /><a href="https://github.com/KohakuBlueleaf" target="_blank">KohakuBlueleaf<br/><span class="contributor-name">Kohaku-Blueleaf</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/KohakuBlueleaf.png?size=20" alt="KohakuBlueleaf" /><a href="https://github.com/KohakuBlueleaf" target="_blank">KohakuBlueleaf<br/><span class="contributor-name">Kohaku-Blueleaf</span></a></span></td>
                     <td class="reason">專案擁有者 KohakuBlueleaf 來自台灣</td>
                 </tr>
                 <tr>
@@ -633,8 +638,8 @@
                     <td class="stars">2,382</td>
                     <td class="forks">135</td>
                     <td><span class="language">Shell</span></td>
-                    <td><a href="https://github.com/WoeUSB" target="_blank">WoeUSB</a></td>
-                    <td class="contributors"><a href="https://github.com/brlin-tw" target="_blank">brlin-tw</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/WoeUSB.png?size=40" alt="WoeUSB" /><a href="https://github.com/WoeUSB" target="_blank">WoeUSB</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/brlin-tw.png?size=20" alt="brlin-tw" /><a href="https://github.com/brlin-tw" target="_blank">brlin-tw<br/><span class="contributor-name">林博仁 Buo-ren Lin</span></a></span></td>
                     <td class="reason">台灣開發者 brlin-tw 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -643,8 +648,8 @@
                     <td class="stars">2,355</td>
                     <td class="forks">145</td>
                     <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/protomaps" target="_blank">protomaps</a></td>
-                    <td class="contributors"><a href="https://github.com/bdon" target="_blank">bdon</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/protomaps.png?size=40" alt="protomaps" /><a href="https://github.com/protomaps" target="_blank">protomaps</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/bdon.png?size=20" alt="bdon" /><a href="https://github.com/bdon" target="_blank">bdon<br/><span class="contributor-name">Brandon Liu</span></a></span></td>
                     <td class="reason">台灣開發者 bdon 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -653,8 +658,8 @@
                     <td class="stars">2,342</td>
                     <td class="forks">1,113</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/smallcorgi" target="_blank">smallcorgi</a></td>
-                    <td class="contributors"><a href="https://github.com/smallcorgi" target="_blank">smallcorgi</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/smallcorgi.png?size=40" alt="smallcorgi" /><a href="https://github.com/smallcorgi" target="_blank">smallcorgi<br/><span class="contributor-name">Fu-Hsiang Chan</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/smallcorgi.png?size=20" alt="smallcorgi" /><a href="https://github.com/smallcorgi" target="_blank">smallcorgi<br/><span class="contributor-name">Fu-Hsiang Chan</span></a></span></td>
                     <td class="reason">專案擁有者 smallcorgi 來自台灣</td>
                 </tr>
                 <tr>
@@ -663,8 +668,8 @@
                     <td class="stars">2,292</td>
                     <td class="forks">148</td>
                     <td><span class="language">C++</span></td>
-                    <td><a href="https://github.com/audreyt" target="_blank">audreyt</a></td>
-                    <td class="contributors"><a href="https://github.com/audreyt" target="_blank">audreyt</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/audreyt.png?size=40" alt="audreyt" /><a href="https://github.com/audreyt" target="_blank">audreyt<br/><span class="contributor-name">唐鳳</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/audreyt.png?size=20" alt="audreyt" /><a href="https://github.com/audreyt" target="_blank">audreyt<br/><span class="contributor-name">唐鳳</span></a></span></td>
                     <td class="reason">專案擁有者 audreyt 來自台灣</td>
                 </tr>
                 <tr>
@@ -673,8 +678,8 @@
                     <td class="stars">2,259</td>
                     <td class="forks">455</td>
                     <td><span class="language">CSS</span></td>
-                    <td><a href="https://github.com/muan" target="_blank">muan</a></td>
-                    <td class="contributors"><a href="https://github.com/muan" target="_blank">muan</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/muan.png?size=40" alt="muan" /><a href="https://github.com/muan" target="_blank">muan<br/><span class="contributor-name">Mu-An Chiou</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/muan.png?size=20" alt="muan" /><a href="https://github.com/muan" target="_blank">muan<br/><span class="contributor-name">Mu-An Chiou</span></a></span></td>
                     <td class="reason">專案擁有者 muan 來自台灣</td>
                 </tr>
                 <tr>
@@ -683,8 +688,8 @@
                     <td class="stars">2,221</td>
                     <td class="forks">776</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/AllenFang" target="_blank">AllenFang</a></td>
-                    <td class="contributors"><a href="https://github.com/AllenFang" target="_blank">AllenFang</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/AllenFang.png?size=40" alt="AllenFang" /><a href="https://github.com/AllenFang" target="_blank">AllenFang<br/><span class="contributor-name">allen</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/AllenFang.png?size=20" alt="AllenFang" /><a href="https://github.com/AllenFang" target="_blank">AllenFang<br/><span class="contributor-name">allen</span></a></span></td>
                     <td class="reason">專案擁有者 AllenFang 來自台灣</td>
                 </tr>
                 <tr>
@@ -693,8 +698,8 @@
                     <td class="stars">2,207</td>
                     <td class="forks">145</td>
                     <td><span class="language">Ruby</span></td>
-                    <td><a href="https://github.com/david942j" target="_blank">david942j</a></td>
-                    <td class="contributors"><a href="https://github.com/david942j" target="_blank">david942j</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/david942j.png?size=40" alt="david942j" /><a href="https://github.com/david942j" target="_blank">david942j</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/david942j.png?size=20" alt="david942j" /><a href="https://github.com/david942j" target="_blank">david942j</a></span></td>
                     <td class="reason">專案擁有者 david942j 來自台灣</td>
                 </tr>
                 <tr>
@@ -703,8 +708,8 @@
                     <td class="stars">2,192</td>
                     <td class="forks">684</td>
                     <td><span class="language">Jupyter Notebook</span></td>
-                    <td><a href="https://github.com/erhwenkuo" target="_blank">erhwenkuo</a></td>
-                    <td class="contributors"><a href="https://github.com/erhwenkuo" target="_blank">erhwenkuo</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/erhwenkuo.png?size=40" alt="erhwenkuo" /><a href="https://github.com/erhwenkuo" target="_blank">erhwenkuo<br/><span class="contributor-name">ErhWen Kuo</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/erhwenkuo.png?size=20" alt="erhwenkuo" /><a href="https://github.com/erhwenkuo" target="_blank">erhwenkuo<br/><span class="contributor-name">ErhWen Kuo</span></a></span></td>
                     <td class="reason">專案擁有者 erhwenkuo 來自台灣</td>
                 </tr>
                 <tr>
@@ -713,8 +718,8 @@
                     <td class="stars">2,183</td>
                     <td class="forks">153</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/tobychui" target="_blank">tobychui</a></td>
-                    <td class="contributors"><a href="https://github.com/tobychui" target="_blank">tobychui</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/tobychui.png?size=40" alt="tobychui" /><a href="https://github.com/tobychui" target="_blank">tobychui<br/><span class="contributor-name">Toby Chui</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/tobychui.png?size=20" alt="tobychui" /><a href="https://github.com/tobychui" target="_blank">tobychui<br/><span class="contributor-name">Toby Chui</span></a></span></td>
                     <td class="reason">專案擁有者 tobychui 來自台灣</td>
                 </tr>
                 <tr>
@@ -723,8 +728,8 @@
                     <td class="stars">2,145</td>
                     <td class="forks">389</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/jhen0409" target="_blank">jhen0409</a></td>
-                    <td class="contributors"><a href="https://github.com/jhen0409" target="_blank">jhen0409</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/jhen0409.png?size=40" alt="jhen0409" /><a href="https://github.com/jhen0409" target="_blank">jhen0409<br/><span class="contributor-name">Jhen-Jie Hong</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/jhen0409.png?size=20" alt="jhen0409" /><a href="https://github.com/jhen0409" target="_blank">jhen0409<br/><span class="contributor-name">Jhen-Jie Hong</span></a></span></td>
                     <td class="reason">專案擁有者 jhen0409 來自台灣</td>
                 </tr>
                 <tr>
@@ -733,8 +738,8 @@
                     <td class="stars">2,040</td>
                     <td class="forks">174</td>
                     <td><span class="language">C++</span></td>
-                    <td><a href="https://github.com/gosu" target="_blank">gosu</a></td>
-                    <td class="contributors"><a href="https://github.com/jlnr" target="_blank">jlnr</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/gosu.png?size=40" alt="gosu" /><a href="https://github.com/gosu" target="_blank">gosu</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/jlnr.png?size=20" alt="jlnr" /><a href="https://github.com/jlnr" target="_blank">jlnr<br/><span class="contributor-name">Julian</span></a></span></td>
                     <td class="reason">台灣開發者 jlnr 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -743,8 +748,8 @@
                     <td class="stars">2,039</td>
                     <td class="forks">123</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/muan" target="_blank">muan</a></td>
-                    <td class="contributors"><a href="https://github.com/muan" target="_blank">muan</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/muan.png?size=40" alt="muan" /><a href="https://github.com/muan" target="_blank">muan<br/><span class="contributor-name">Mu-An Chiou</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/muan.png?size=20" alt="muan" /><a href="https://github.com/muan" target="_blank">muan<br/><span class="contributor-name">Mu-An Chiou</span></a></span></td>
                     <td class="reason">專案擁有者 muan 來自台灣</td>
                 </tr>
                 <tr>
@@ -753,8 +758,8 @@
                     <td class="stars">2,024</td>
                     <td class="forks">143</td>
                     <td>-</td>
-                    <td><a href="https://github.com/chentsulin" target="_blank">chentsulin</a></td>
-                    <td class="contributors"><a href="https://github.com/chentsulin" target="_blank">chentsulin</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/chentsulin.png?size=40" alt="chentsulin" /><a href="https://github.com/chentsulin" target="_blank">chentsulin<br/><span class="contributor-name">C. T. Lin</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/chentsulin.png?size=20" alt="chentsulin" /><a href="https://github.com/chentsulin" target="_blank">chentsulin<br/><span class="contributor-name">C. T. Lin</span></a></span></td>
                     <td class="reason">專案擁有者 chentsulin 來自台灣</td>
                 </tr>
                 <tr>
@@ -763,8 +768,8 @@
                     <td class="stars">2,002</td>
                     <td class="forks">71</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/WeiChiaChang" target="_blank">WeiChiaChang</a></td>
-                    <td class="contributors"><a href="https://github.com/WeiChiaChang" target="_blank">WeiChiaChang</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/WeiChiaChang.png?size=40" alt="WeiChiaChang" /><a href="https://github.com/WeiChiaChang" target="_blank">WeiChiaChang<br/><span class="contributor-name">WesleyZen</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/WeiChiaChang.png?size=20" alt="WeiChiaChang" /><a href="https://github.com/WeiChiaChang" target="_blank">WeiChiaChang<br/><span class="contributor-name">WesleyZen</span></a></span></td>
                     <td class="reason">專案擁有者 WeiChiaChang 來自台灣</td>
                 </tr>
                 <tr>
@@ -773,8 +778,8 @@
                     <td class="stars">1,970</td>
                     <td class="forks">473</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/bhnddowinf" target="_blank">bhnddowinf</a></td>
-                    <td class="contributors"><a href="https://github.com/bhnddowinf" target="_blank">bhnddowinf</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/bhnddowinf.png?size=40" alt="bhnddowinf" /><a href="https://github.com/bhnddowinf" target="_blank">bhnddowinf<br/><span class="contributor-name">endy 台湾小凡（余昌鸿）</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/bhnddowinf.png?size=20" alt="bhnddowinf" /><a href="https://github.com/bhnddowinf" target="_blank">bhnddowinf<br/><span class="contributor-name">endy 台湾小凡（余昌鸿）</span></a></span></td>
                     <td class="reason">專案擁有者 bhnddowinf 來自台灣</td>
                 </tr>
                 <tr>
@@ -783,8 +788,8 @@
                     <td class="stars">1,964</td>
                     <td class="forks">393</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/salu133445" target="_blank">salu133445</a></td>
-                    <td class="contributors"><a href="https://github.com/salu133445" target="_blank">salu133445</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/salu133445.png?size=40" alt="salu133445" /><a href="https://github.com/salu133445" target="_blank">salu133445<br/><span class="contributor-name">Hao-Wen (Herman) Dong 董皓文</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/salu133445.png?size=20" alt="salu133445" /><a href="https://github.com/salu133445" target="_blank">salu133445<br/><span class="contributor-name">Hao-Wen (Herman) Dong 董皓文</span></a></span></td>
                     <td class="reason">專案擁有者 salu133445 來自台灣</td>
                 </tr>
                 <tr>
@@ -793,8 +798,8 @@
                     <td class="stars">1,923</td>
                     <td class="forks">383</td>
                     <td><span class="language">Java</span></td>
-                    <td><a href="https://github.com/topjohnwu" target="_blank">topjohnwu</a></td>
-                    <td class="contributors"><a href="https://github.com/topjohnwu" target="_blank">topjohnwu</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/topjohnwu.png?size=40" alt="topjohnwu" /><a href="https://github.com/topjohnwu" target="_blank">topjohnwu<br/><span class="contributor-name">John Wu</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/topjohnwu.png?size=20" alt="topjohnwu" /><a href="https://github.com/topjohnwu" target="_blank">topjohnwu<br/><span class="contributor-name">John Wu</span></a></span></td>
                     <td class="reason">專案擁有者 topjohnwu 來自台灣</td>
                 </tr>
                 <tr>
@@ -803,8 +808,8 @@
                     <td class="stars">1,899</td>
                     <td class="forks">158</td>
                     <td><span class="language">Rust</span></td>
-                    <td><a href="https://github.com/ranile" target="_blank">ranile</a></td>
-                    <td class="contributors"><a href="https://github.com/ranile" target="_blank">ranile</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/ranile.png?size=40" alt="ranile" /><a href="https://github.com/ranile" target="_blank">ranile<br/><span class="contributor-name">Elina</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/ranile.png?size=20" alt="ranile" /><a href="https://github.com/ranile" target="_blank">ranile<br/><span class="contributor-name">Elina</span></a></span></td>
                     <td class="reason">專案擁有者 ranile 來自台灣</td>
                 </tr>
                 <tr>
@@ -813,8 +818,8 @@
                     <td class="stars">1,877</td>
                     <td class="forks">78</td>
                     <td>-</td>
-                    <td><a href="https://github.com/f2etw" target="_blank">f2etw</a></td>
-                    <td class="contributors"><a href="https://github.com/Rplus" target="_blank">Rplus</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/f2etw.png?size=40" alt="f2etw" /><a href="https://github.com/f2etw" target="_blank">f2etw</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/Rplus.png?size=20" alt="Rplus" /><a href="https://github.com/Rplus" target="_blank">Rplus</a></span></td>
                     <td class="reason">台灣開發者 Rplus 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -823,8 +828,8 @@
                     <td class="stars">1,871</td>
                     <td class="forks">1,117</td>
                     <td><span class="language">HTML</span></td>
-                    <td><a href="https://github.com/maple3142" target="_blank">maple3142</a></td>
-                    <td class="contributors"><a href="https://github.com/maple3142" target="_blank">maple3142</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/maple3142.png?size=40" alt="maple3142" /><a href="https://github.com/maple3142" target="_blank">maple3142<br/><span class="contributor-name">maple</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/maple3142.png?size=20" alt="maple3142" /><a href="https://github.com/maple3142" target="_blank">maple3142<br/><span class="contributor-name">maple</span></a></span></td>
                     <td class="reason">專案擁有者 maple3142 來自台灣</td>
                 </tr>
                 <tr>
@@ -833,8 +838,8 @@
                     <td class="stars">1,861</td>
                     <td class="forks">479</td>
                     <td><span class="language">C++</span></td>
-                    <td><a href="https://github.com/luc-github" target="_blank">luc-github</a></td>
-                    <td class="contributors"><a href="https://github.com/luc-github" target="_blank">luc-github</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/luc-github.png?size=40" alt="luc-github" /><a href="https://github.com/luc-github" target="_blank">luc-github<br/><span class="contributor-name">Luc</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/luc-github.png?size=20" alt="luc-github" /><a href="https://github.com/luc-github" target="_blank">luc-github<br/><span class="contributor-name">Luc</span></a></span></td>
                     <td class="reason">專案擁有者 luc-github 來自台灣</td>
                 </tr>
                 <tr>
@@ -843,8 +848,8 @@
                     <td class="stars">1,856</td>
                     <td class="forks">65</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/ButTaiwan" target="_blank">ButTaiwan</a></td>
-                    <td class="contributors"><a href="https://github.com/ButTaiwan" target="_blank">ButTaiwan</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/ButTaiwan.png?size=40" alt="ButTaiwan" /><a href="https://github.com/ButTaiwan" target="_blank">ButTaiwan<br/><span class="contributor-name">But Ko</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/ButTaiwan.png?size=20" alt="ButTaiwan" /><a href="https://github.com/ButTaiwan" target="_blank">ButTaiwan<br/><span class="contributor-name">But Ko</span></a></span></td>
                     <td class="reason">專案擁有者 ButTaiwan 來自台灣</td>
                 </tr>
                 <tr>
@@ -853,8 +858,8 @@
                     <td class="stars">1,855</td>
                     <td class="forks">127</td>
                     <td>-</td>
-                    <td><a href="https://github.com/miaomiaosoft" target="_blank">miaomiaosoft</a></td>
-                    <td class="contributors"><a href="https://github.com/miaomiaosoft" target="_blank">miaomiaosoft</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/miaomiaosoft.png?size=40" alt="miaomiaosoft" /><a href="https://github.com/miaomiaosoft" target="_blank">miaomiaosoft<br/><span class="contributor-name">miao_miao</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/miaomiaosoft.png?size=20" alt="miaomiaosoft" /><a href="https://github.com/miaomiaosoft" target="_blank">miaomiaosoft<br/><span class="contributor-name">miao_miao</span></a></span></td>
                     <td class="reason">專案擁有者 miaomiaosoft 來自台灣</td>
                 </tr>
                 <tr>
@@ -863,8 +868,8 @@
                     <td class="stars">1,793</td>
                     <td class="forks">233</td>
                     <td>-</td>
-                    <td><a href="https://github.com/Naetw" target="_blank">Naetw</a></td>
-                    <td class="contributors"><a href="https://github.com/Naetw" target="_blank">Naetw</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/Naetw.png?size=40" alt="Naetw" /><a href="https://github.com/Naetw" target="_blank">Naetw</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/Naetw.png?size=20" alt="Naetw" /><a href="https://github.com/Naetw" target="_blank">Naetw</a></span></td>
                     <td class="reason">專案擁有者 Naetw 來自台灣</td>
                 </tr>
                 <tr>
@@ -873,8 +878,8 @@
                     <td class="stars">1,783</td>
                     <td class="forks">303</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/twtrubiks" target="_blank">twtrubiks</a></td>
-                    <td class="contributors"><a href="https://github.com/twtrubiks" target="_blank">twtrubiks</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/twtrubiks.png?size=40" alt="twtrubiks" /><a href="https://github.com/twtrubiks" target="_blank">twtrubiks</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/twtrubiks.png?size=20" alt="twtrubiks" /><a href="https://github.com/twtrubiks" target="_blank">twtrubiks</a></span></td>
                     <td class="reason">專案擁有者 twtrubiks 來自台灣</td>
                 </tr>
                 <tr>
@@ -883,8 +888,8 @@
                     <td class="stars">1,778</td>
                     <td class="forks">551</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/jkjung-avt" target="_blank">jkjung-avt</a></td>
-                    <td class="contributors"><a href="https://github.com/jkjung-avt" target="_blank">jkjung-avt</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/jkjung-avt.png?size=40" alt="jkjung-avt" /><a href="https://github.com/jkjung-avt" target="_blank">jkjung-avt<br/><span class="contributor-name">JK Jung</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/jkjung-avt.png?size=20" alt="jkjung-avt" /><a href="https://github.com/jkjung-avt" target="_blank">jkjung-avt<br/><span class="contributor-name">JK Jung</span></a></span></td>
                     <td class="reason">專案擁有者 jkjung-avt 來自台灣</td>
                 </tr>
                 <tr>
@@ -893,8 +898,8 @@
                     <td class="stars">1,767</td>
                     <td class="forks">242</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/Inndy" target="_blank">Inndy</a></td>
-                    <td class="contributors"><a href="https://github.com/Inndy" target="_blank">Inndy</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/Inndy.png?size=40" alt="Inndy" /><a href="https://github.com/Inndy" target="_blank">Inndy</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/Inndy.png?size=20" alt="Inndy" /><a href="https://github.com/Inndy" target="_blank">Inndy</a></span></td>
                     <td class="reason">專案擁有者 Inndy 來自台灣</td>
                 </tr>
                 <tr>
@@ -903,8 +908,8 @@
                     <td class="stars">1,757</td>
                     <td class="forks">157</td>
                     <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/pionxzh" target="_blank">pionxzh</a></td>
-                    <td class="contributors"><a href="https://github.com/pionxzh" target="_blank">pionxzh</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/pionxzh.png?size=40" alt="pionxzh" /><a href="https://github.com/pionxzh" target="_blank">pionxzh<br/><span class="contributor-name">Pionxzh</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/pionxzh.png?size=20" alt="pionxzh" /><a href="https://github.com/pionxzh" target="_blank">pionxzh<br/><span class="contributor-name">Pionxzh</span></a></span></td>
                     <td class="reason">專案擁有者 pionxzh 來自台灣</td>
                 </tr>
                 <tr>
@@ -913,8 +918,8 @@
                     <td class="stars">1,733</td>
                     <td class="forks">306</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/muan" target="_blank">muan</a></td>
-                    <td class="contributors"><a href="https://github.com/muan" target="_blank">muan</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/muan.png?size=40" alt="muan" /><a href="https://github.com/muan" target="_blank">muan<br/><span class="contributor-name">Mu-An Chiou</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/muan.png?size=20" alt="muan" /><a href="https://github.com/muan" target="_blank">muan<br/><span class="contributor-name">Mu-An Chiou</span></a></span></td>
                     <td class="reason">專案擁有者 muan 來自台灣</td>
                 </tr>
                 <tr>
@@ -923,8 +928,8 @@
                     <td class="stars">1,716</td>
                     <td class="forks">358</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/Yvictor" target="_blank">Yvictor</a></td>
-                    <td class="contributors"><a href="https://github.com/Yvictor" target="_blank">Yvictor</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/Yvictor.png?size=40" alt="Yvictor" /><a href="https://github.com/Yvictor" target="_blank">Yvictor</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/Yvictor.png?size=20" alt="Yvictor" /><a href="https://github.com/Yvictor" target="_blank">Yvictor</a></span></td>
                     <td class="reason">專案擁有者 Yvictor 來自台灣</td>
                 </tr>
                 <tr>
@@ -933,8 +938,8 @@
                     <td class="stars">1,647</td>
                     <td class="forks">91</td>
                     <td><span class="language">Swift</span></td>
-                    <td><a href="https://github.com/Jintin" target="_blank">Jintin</a></td>
-                    <td class="contributors"><a href="https://github.com/Jintin" target="_blank">Jintin</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/Jintin.png?size=40" alt="Jintin" /><a href="https://github.com/Jintin" target="_blank">Jintin</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/Jintin.png?size=20" alt="Jintin" /><a href="https://github.com/Jintin" target="_blank">Jintin</a></span></td>
                     <td class="reason">專案擁有者 Jintin 來自台灣</td>
                 </tr>
                 <tr>
@@ -943,8 +948,8 @@
                     <td class="stars">1,645</td>
                     <td class="forks">160</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/realdennis" target="_blank">realdennis</a></td>
-                    <td class="contributors"><a href="https://github.com/realdennis" target="_blank">realdennis</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/realdennis.png?size=40" alt="realdennis" /><a href="https://github.com/realdennis" target="_blank">realdennis<br/><span class="contributor-name">Dennis</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/realdennis.png?size=20" alt="realdennis" /><a href="https://github.com/realdennis" target="_blank">realdennis<br/><span class="contributor-name">Dennis</span></a></span></td>
                     <td class="reason">專案擁有者 realdennis 來自台灣</td>
                 </tr>
                 <tr>
@@ -953,8 +958,8 @@
                     <td class="stars">1,642</td>
                     <td class="forks">99</td>
                     <td>-</td>
-                    <td><a href="https://github.com/gnehs" target="_blank">gnehs</a></td>
-                    <td class="contributors"><a href="https://github.com/gnehs" target="_blank">gnehs</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/gnehs.png?size=40" alt="gnehs" /><a href="https://github.com/gnehs" target="_blank">gnehs</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/gnehs.png?size=20" alt="gnehs" /><a href="https://github.com/gnehs" target="_blank">gnehs</a></span></td>
                     <td class="reason">專案擁有者 gnehs 來自台灣</td>
                 </tr>
                 <tr>
@@ -963,8 +968,8 @@
                     <td class="stars">1,590</td>
                     <td class="forks">356</td>
                     <td>-</td>
-                    <td><a href="https://github.com/kevingo" target="_blank">kevingo</a></td>
-                    <td class="contributors"><a href="https://github.com/kevingo" target="_blank">kevingo</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/kevingo.png?size=40" alt="kevingo" /><a href="https://github.com/kevingo" target="_blank">kevingo</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/kevingo.png?size=20" alt="kevingo" /><a href="https://github.com/kevingo" target="_blank">kevingo</a></span></td>
                     <td class="reason">專案擁有者 kevingo 來自台灣</td>
                 </tr>
                 <tr>
@@ -973,8 +978,8 @@
                     <td class="stars">1,577</td>
                     <td class="forks">637</td>
                     <td>-</td>
-                    <td><a href="https://github.com/YuanHsing" target="_blank">YuanHsing</a></td>
-                    <td class="contributors"><a href="https://github.com/YuanHsing" target="_blank">YuanHsing</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/YuanHsing.png?size=40" alt="YuanHsing" /><a href="https://github.com/YuanHsing" target="_blank">YuanHsing</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/YuanHsing.png?size=20" alt="YuanHsing" /><a href="https://github.com/YuanHsing" target="_blank">YuanHsing</a></span></td>
                     <td class="reason">專案擁有者 YuanHsing 來自台灣</td>
                 </tr>
                 <tr>
@@ -983,8 +988,8 @@
                     <td class="stars">1,569</td>
                     <td class="forks">202</td>
                     <td>-</td>
-                    <td><a href="https://github.com/xdite" target="_blank">xdite</a></td>
-                    <td class="contributors"><a href="https://github.com/xdite" target="_blank">xdite</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/xdite.png?size=40" alt="xdite" /><a href="https://github.com/xdite" target="_blank">xdite<br/><span class="contributor-name">Yi-Ting Cheng</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/xdite.png?size=20" alt="xdite" /><a href="https://github.com/xdite" target="_blank">xdite<br/><span class="contributor-name">Yi-Ting Cheng</span></a></span></td>
                     <td class="reason">專案擁有者 xdite 來自台灣</td>
                 </tr>
                 <tr>
@@ -993,8 +998,8 @@
                     <td class="stars">1,558</td>
                     <td class="forks">105</td>
                     <td><span class="language">Kotlin</span></td>
-                    <td><a href="https://github.com/plateaukao" target="_blank">plateaukao</a></td>
-                    <td class="contributors"><a href="https://github.com/plateaukao" target="_blank">plateaukao</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/plateaukao.png?size=40" alt="plateaukao" /><a href="https://github.com/plateaukao" target="_blank">plateaukao<br/><span class="contributor-name">Daniel Kao</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/plateaukao.png?size=20" alt="plateaukao" /><a href="https://github.com/plateaukao" target="_blank">plateaukao<br/><span class="contributor-name">Daniel Kao</span></a></span></td>
                     <td class="reason">專案擁有者 plateaukao 來自台灣</td>
                 </tr>
                 <tr>
@@ -1003,8 +1008,8 @@
                     <td class="stars">1,544</td>
                     <td class="forks">261</td>
                     <td><span class="language">Java</span></td>
-                    <td><a href="https://github.com/topjohnwu" target="_blank">topjohnwu</a></td>
-                    <td class="contributors"><a href="https://github.com/topjohnwu" target="_blank">topjohnwu</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/topjohnwu.png?size=40" alt="topjohnwu" /><a href="https://github.com/topjohnwu" target="_blank">topjohnwu<br/><span class="contributor-name">John Wu</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/topjohnwu.png?size=20" alt="topjohnwu" /><a href="https://github.com/topjohnwu" target="_blank">topjohnwu<br/><span class="contributor-name">John Wu</span></a></span></td>
                     <td class="reason">專案擁有者 topjohnwu 來自台灣</td>
                 </tr>
                 <tr>
@@ -1013,8 +1018,8 @@
                     <td class="stars">1,523</td>
                     <td class="forks">401</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/admc" target="_blank">admc</a></td>
-                    <td class="contributors"><a href="https://github.com/sebv" target="_blank">sebv</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/admc.png?size=40" alt="admc" /><a href="https://github.com/admc" target="_blank">admc</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/sebv.png?size=20" alt="sebv" /><a href="https://github.com/sebv" target="_blank">sebv<br/><span class="contributor-name">seb vincent</span></a></span></td>
                     <td class="reason">台灣開發者 sebv 是專案的第一貢獻者</td>
                 </tr>
                 <tr>
@@ -1023,8 +1028,8 @@
                     <td class="stars">1,500</td>
                     <td class="forks">426</td>
                     <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/JiaRenChang" target="_blank">JiaRenChang</a></td>
-                    <td class="contributors"><a href="https://github.com/JiaRenChang" target="_blank">JiaRenChang</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/JiaRenChang.png?size=40" alt="JiaRenChang" /><a href="https://github.com/JiaRenChang" target="_blank">JiaRenChang<br/><span class="contributor-name">Jia-Ren Chang</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/JiaRenChang.png?size=20" alt="JiaRenChang" /><a href="https://github.com/JiaRenChang" target="_blank">JiaRenChang<br/><span class="contributor-name">Jia-Ren Chang</span></a></span></td>
                     <td class="reason">專案擁有者 JiaRenChang 來自台灣</td>
                 </tr>
                 <tr>
@@ -1033,8 +1038,8 @@
                     <td class="stars">1,499</td>
                     <td class="forks">370</td>
                     <td><span class="language">Jupyter Notebook</span></td>
-                    <td><a href="https://github.com/tjwei" target="_blank">tjwei</a></td>
-                    <td class="contributors"><a href="https://github.com/tjwei" target="_blank">tjwei</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/tjwei.png?size=40" alt="tjwei" /><a href="https://github.com/tjwei" target="_blank">tjwei<br/><span class="contributor-name">Tzerjen Wei</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/tjwei.png?size=20" alt="tjwei" /><a href="https://github.com/tjwei" target="_blank">tjwei<br/><span class="contributor-name">Tzerjen Wei</span></a></span></td>
                     <td class="reason">專案擁有者 tjwei 來自台灣</td>
                 </tr>
                 <tr>
@@ -1043,8 +1048,8 @@
                     <td class="stars">1,497</td>
                     <td class="forks">274</td>
                     <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/bhnddowinf" target="_blank">bhnddowinf</a></td>
-                    <td class="contributors"><a href="https://github.com/bhnddowinf" target="_blank">bhnddowinf</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/bhnddowinf.png?size=40" alt="bhnddowinf" /><a href="https://github.com/bhnddowinf" target="_blank">bhnddowinf<br/><span class="contributor-name">endy 台湾小凡（余昌鸿）</span></a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/bhnddowinf.png?size=20" alt="bhnddowinf" /><a href="https://github.com/bhnddowinf" target="_blank">bhnddowinf<br/><span class="contributor-name">endy 台湾小凡（余昌鸿）</span></a></span></td>
                     <td class="reason">專案擁有者 bhnddowinf 來自台灣</td>
                 </tr>
                 <tr>
@@ -1053,1009 +1058,9 @@
                     <td class="stars">1,489</td>
                     <td class="forks">340</td>
                     <td><span class="language">Go</span></td>
-                    <td><a href="https://github.com/c9s" target="_blank">c9s</a></td>
-                    <td class="contributors"><a href="https://github.com/c9s" target="_blank">c9s</a></td>
+                    <td><div class="owner-info"><img class="avatar" src="https://github.com/c9s.png?size=40" alt="c9s" /><a href="https://github.com/c9s" target="_blank">c9s</a></div></td>
+                    <td class="contributors"><span class="contributor-item"><img class="avatar-small" src="https://github.com/c9s.png?size=20" alt="c9s" /><a href="https://github.com/c9s" target="_blank">c9s</a></span></td>
                     <td class="reason">專案擁有者 c9s 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">101</td>
-                    <td class="project-name"><a href="https://github.com/wellyshen/react-cool-inview" target="_blank">react-cool-inview</a></td>
-                    <td class="stars">1,465</td>
-                    <td class="forks">41</td>
-                    <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/wellyshen" target="_blank">wellyshen</a></td>
-                    <td class="contributors"><a href="https://github.com/wellyshen" target="_blank">wellyshen</a></td>
-                    <td class="reason">專案擁有者 wellyshen 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">102</td>
-                    <td class="project-name"><a href="https://github.com/appleboy/CodeGPT" target="_blank">CodeGPT</a></td>
-                    <td class="stars">1,452</td>
-                    <td class="forks">125</td>
-                    <td><span class="language">Go</span></td>
-                    <td><a href="https://github.com/appleboy" target="_blank">appleboy</a></td>
-                    <td class="contributors"><a href="https://github.com/appleboy" target="_blank">appleboy</a></td>
-                    <td class="reason">專案擁有者 appleboy 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">103</td>
-                    <td class="project-name"><a href="https://github.com/appleboy/scp-action" target="_blank">scp-action</a></td>
-                    <td class="stars">1,445</td>
-                    <td class="forks">152</td>
-                    <td><span class="language">Shell</span></td>
-                    <td><a href="https://github.com/appleboy" target="_blank">appleboy</a></td>
-                    <td class="contributors"><a href="https://github.com/appleboy" target="_blank">appleboy</a></td>
-                    <td class="reason">專案擁有者 appleboy 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">104</td>
-                    <td class="project-name"><a href="https://github.com/kkdai/project52" target="_blank">project52</a></td>
-                    <td class="stars">1,437</td>
-                    <td class="forks">175</td>
-                    <td>-</td>
-                    <td><a href="https://github.com/kkdai" target="_blank">kkdai</a></td>
-                    <td class="contributors"><a href="https://github.com/kkdai" target="_blank">kkdai</a></td>
-                    <td class="reason">專案擁有者 kkdai 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">105</td>
-                    <td class="project-name"><a href="https://github.com/abynim/UserFlows" target="_blank">UserFlows</a></td>
-                    <td class="stars">1,418</td>
-                    <td class="forks">74</td>
-                    <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/abynim" target="_blank">abynim</a></td>
-                    <td class="contributors"><a href="https://github.com/abynim" target="_blank">abynim</a></td>
-                    <td class="reason">專案擁有者 abynim 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">106</td>
-                    <td class="project-name"><a href="https://github.com/emacs-dashboard/emacs-dashboard" target="_blank">emacs-dashboard</a></td>
-                    <td class="stars">1,411</td>
-                    <td class="forks">141</td>
-                    <td><span class="language">Emacs Lisp</span></td>
-                    <td><a href="https://github.com/emacs-dashboard" target="_blank">emacs-dashboard</a></td>
-                    <td class="contributors"><a href="https://github.com/jcs090218" target="_blank">jcs090218</a></td>
-                    <td class="reason">台灣開發者 jcs090218 是專案的第一貢獻者</td>
-                </tr>
-                <tr>
-                    <td class="rank">107</td>
-                    <td class="project-name"><a href="https://github.com/EasyIME/PIME" target="_blank">PIME</a></td>
-                    <td class="stars">1,400</td>
-                    <td class="forks">230</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/EasyIME" target="_blank">EasyIME</a></td>
-                    <td class="contributors"><a href="https://github.com/PCMan" target="_blank">PCMan</a></td>
-                    <td class="reason">台灣開發者 PCMan 是專案的第一貢獻者</td>
-                </tr>
-                <tr>
-                    <td class="rank">108</td>
-                    <td class="project-name"><a href="https://github.com/danny0838/content-farm-terminator" target="_blank">content-farm-terminator</a></td>
-                    <td class="stars">1,369</td>
-                    <td class="forks">46</td>
-                    <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/danny0838" target="_blank">danny0838</a></td>
-                    <td class="contributors"><a href="https://github.com/danny0838" target="_blank">danny0838</a></td>
-                    <td class="reason">專案擁有者 danny0838 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">109</td>
-                    <td class="project-name"><a href="https://github.com/aitjcize/cppman" target="_blank">cppman</a></td>
-                    <td class="stars">1,366</td>
-                    <td class="forks">87</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/aitjcize" target="_blank">aitjcize</a></td>
-                    <td class="contributors"><a href="https://github.com/aitjcize" target="_blank">aitjcize</a></td>
-                    <td class="reason">專案擁有者 aitjcize 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">110</td>
-                    <td class="project-name"><a href="https://github.com/fukuball/jieba-php" target="_blank">jieba-php</a></td>
-                    <td class="stars">1,358</td>
-                    <td class="forks">257</td>
-                    <td><span class="language">PHP</span></td>
-                    <td><a href="https://github.com/fukuball" target="_blank">fukuball</a></td>
-                    <td class="contributors"><a href="https://github.com/fukuball" target="_blank">fukuball</a></td>
-                    <td class="reason">專案擁有者 fukuball 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">111</td>
-                    <td class="project-name"><a href="https://github.com/wellyshen/react-cool-starter" target="_blank">react-cool-starter</a></td>
-                    <td class="stars">1,310</td>
-                    <td class="forks">240</td>
-                    <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/wellyshen" target="_blank">wellyshen</a></td>
-                    <td class="contributors"><a href="https://github.com/wellyshen" target="_blank">wellyshen</a></td>
-                    <td class="reason">專案擁有者 wellyshen 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">112</td>
-                    <td class="project-name"><a href="https://github.com/wellyshen/use-places-autocomplete" target="_blank">use-places-autocomplete</a></td>
-                    <td class="stars">1,286</td>
-                    <td class="forks">68</td>
-                    <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/wellyshen" target="_blank">wellyshen</a></td>
-                    <td class="contributors"><a href="https://github.com/wellyshen" target="_blank">wellyshen</a></td>
-                    <td class="reason">專案擁有者 wellyshen 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">113</td>
-                    <td class="project-name"><a href="https://github.com/kwea123/ngp_pl" target="_blank">ngp_pl</a></td>
-                    <td class="stars">1,284</td>
-                    <td class="forks">157</td>
-                    <td><span class="language">Jupyter Notebook</span></td>
-                    <td><a href="https://github.com/kwea123" target="_blank">kwea123</a></td>
-                    <td class="contributors"><a href="https://github.com/kwea123" target="_blank">kwea123</a></td>
-                    <td class="reason">專案擁有者 kwea123 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">114</td>
-                    <td class="project-name"><a href="https://github.com/wellyshen/use-web-animations" target="_blank">use-web-animations</a></td>
-                    <td class="stars">1,280</td>
-                    <td class="forks">27</td>
-                    <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/wellyshen" target="_blank">wellyshen</a></td>
-                    <td class="contributors"><a href="https://github.com/wellyshen" target="_blank">wellyshen</a></td>
-                    <td class="reason">專案擁有者 wellyshen 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">115</td>
-                    <td class="project-name"><a href="https://github.com/rexrainbow/phaser3-rex-notes" target="_blank">phaser3-rex-notes</a></td>
-                    <td class="stars">1,272</td>
-                    <td class="forks">266</td>
-                    <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/rexrainbow" target="_blank">rexrainbow</a></td>
-                    <td class="contributors"><a href="https://github.com/rexrainbow" target="_blank">rexrainbow</a></td>
-                    <td class="reason">專案擁有者 rexrainbow 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">116</td>
-                    <td class="project-name"><a href="https://github.com/c9s/Pux" target="_blank">Pux</a></td>
-                    <td class="stars">1,267</td>
-                    <td class="forks">80</td>
-                    <td><span class="language">C</span></td>
-                    <td><a href="https://github.com/c9s" target="_blank">c9s</a></td>
-                    <td class="contributors"><a href="https://github.com/c9s" target="_blank">c9s</a></td>
-                    <td class="reason">專案擁有者 c9s 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">117</td>
-                    <td class="project-name"><a href="https://github.com/react-bootstrap-table/react-bootstrap-table2" target="_blank">react-bootstrap-table2</a></td>
-                    <td class="stars">1,265</td>
-                    <td class="forks">430</td>
-                    <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/react-bootstrap-table" target="_blank">react-bootstrap-table</a></td>
-                    <td class="contributors"><a href="https://github.com/AllenFang" target="_blank">AllenFang</a></td>
-                    <td class="reason">台灣開發者 AllenFang 是專案的第一貢獻者</td>
-                </tr>
-                <tr>
-                    <td class="rank">118</td>
-                    <td class="project-name"><a href="https://github.com/kattgu7/Anti-996-License" target="_blank">Anti-996-License</a></td>
-                    <td class="stars">1,259</td>
-                    <td class="forks">60</td>
-                    <td>-</td>
-                    <td><a href="https://github.com/kattgu7" target="_blank">kattgu7</a></td>
-                    <td class="contributors"><a href="https://github.com/kattgu7" target="_blank">kattgu7</a></td>
-                    <td class="reason">專案擁有者 kattgu7 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">119</td>
-                    <td class="project-name"><a href="https://github.com/mlouielu/twstock" target="_blank">twstock</a></td>
-                    <td class="stars">1,244</td>
-                    <td class="forks">364</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/mlouielu" target="_blank">mlouielu</a></td>
-                    <td class="contributors"><a href="https://github.com/mlouielu" target="_blank">mlouielu</a></td>
-                    <td class="reason">專案擁有者 mlouielu 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">120</td>
-                    <td class="project-name"><a href="https://github.com/muan/github-gmail" target="_blank">github-gmail</a></td>
-                    <td class="stars">1,233</td>
-                    <td class="forks">207</td>
-                    <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/muan" target="_blank">muan</a></td>
-                    <td class="contributors"><a href="https://github.com/muan" target="_blank">muan</a></td>
-                    <td class="reason">專案擁有者 muan 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">121</td>
-                    <td class="project-name"><a href="https://github.com/wellyshen/react-cool-virtual" target="_blank">react-cool-virtual</a></td>
-                    <td class="stars">1,227</td>
-                    <td class="forks">40</td>
-                    <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/wellyshen" target="_blank">wellyshen</a></td>
-                    <td class="contributors"><a href="https://github.com/wellyshen" target="_blank">wellyshen</a></td>
-                    <td class="reason">專案擁有者 wellyshen 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">122</td>
-                    <td class="project-name"><a href="https://github.com/AndroBugs/AndroBugs_Framework" target="_blank">AndroBugs_Framework</a></td>
-                    <td class="stars">1,188</td>
-                    <td class="forks">349</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/AndroBugs" target="_blank">AndroBugs</a></td>
-                    <td class="contributors"><a href="https://github.com/AndroBugs" target="_blank">AndroBugs</a></td>
-                    <td class="reason">專案擁有者 AndroBugs 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">123</td>
-                    <td class="project-name"><a href="https://github.com/jserv/mini-arm-os" target="_blank">mini-arm-os</a></td>
-                    <td class="stars">1,161</td>
-                    <td class="forks">253</td>
-                    <td><span class="language">C</span></td>
-                    <td><a href="https://github.com/jserv" target="_blank">jserv</a></td>
-                    <td class="contributors"><a href="https://github.com/jserv" target="_blank">jserv</a></td>
-                    <td class="reason">專案擁有者 jserv 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">124</td>
-                    <td class="project-name"><a href="https://github.com/dannvix/NflxMultiSubs" target="_blank">NflxMultiSubs</a></td>
-                    <td class="stars">1,156</td>
-                    <td class="forks">151</td>
-                    <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/dannvix" target="_blank">dannvix</a></td>
-                    <td class="contributors"><a href="https://github.com/dannvix" target="_blank">dannvix</a></td>
-                    <td class="reason">專案擁有者 dannvix 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">125</td>
-                    <td class="project-name"><a href="https://github.com/kelp404/CocoaSecurity" target="_blank">CocoaSecurity</a></td>
-                    <td class="stars">1,135</td>
-                    <td class="forks">189</td>
-                    <td><span class="language">Objective-C</span></td>
-                    <td><a href="https://github.com/kelp404" target="_blank">kelp404</a></td>
-                    <td class="contributors"><a href="https://github.com/kelp404" target="_blank">kelp404</a></td>
-                    <td class="reason">專案擁有者 kelp404 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">126</td>
-                    <td class="project-name"><a href="https://github.com/cw1997/NATBypass" target="_blank">NATBypass</a></td>
-                    <td class="stars">1,133</td>
-                    <td class="forks">278</td>
-                    <td><span class="language">Go</span></td>
-                    <td><a href="https://github.com/cw1997" target="_blank">cw1997</a></td>
-                    <td class="contributors"><a href="https://github.com/cw1997" target="_blank">cw1997</a></td>
-                    <td class="reason">專案擁有者 cw1997 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">127</td>
-                    <td class="project-name"><a href="https://github.com/ga642381/speech-trident" target="_blank">speech-trident</a></td>
-                    <td class="stars">1,095</td>
-                    <td class="forks">68</td>
-                    <td>-</td>
-                    <td><a href="https://github.com/ga642381" target="_blank">ga642381</a></td>
-                    <td class="contributors"><a href="https://github.com/ga642381" target="_blank">ga642381</a></td>
-                    <td class="reason">專案擁有者 ga642381 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">128</td>
-                    <td class="project-name"><a href="https://github.com/aszx87410/blog" target="_blank">blog</a></td>
-                    <td class="stars">1,086</td>
-                    <td class="forks">52</td>
-                    <td>-</td>
-                    <td><a href="https://github.com/aszx87410" target="_blank">aszx87410</a></td>
-                    <td class="contributors"><a href="https://github.com/aszx87410" target="_blank">aszx87410</a></td>
-                    <td class="reason">專案擁有者 aszx87410 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">129</td>
-                    <td class="project-name"><a href="https://github.com/EragonJ/Kaku" target="_blank">Kaku</a></td>
-                    <td class="stars">1,076</td>
-                    <td class="forks">104</td>
-                    <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/EragonJ" target="_blank">EragonJ</a></td>
-                    <td class="contributors"><a href="https://github.com/EragonJ" target="_blank">EragonJ</a></td>
-                    <td class="reason">專案擁有者 EragonJ 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">130</td>
-                    <td class="project-name"><a href="https://github.com/danny0838/webscrapbook" target="_blank">webscrapbook</a></td>
-                    <td class="stars">1,069</td>
-                    <td class="forks">135</td>
-                    <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/danny0838" target="_blank">danny0838</a></td>
-                    <td class="contributors"><a href="https://github.com/danny0838" target="_blank">danny0838</a></td>
-                    <td class="reason">專案擁有者 danny0838 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">131</td>
-                    <td class="project-name"><a href="https://github.com/sunset1995/DirectVoxGO" target="_blank">DirectVoxGO</a></td>
-                    <td class="stars">1,069</td>
-                    <td class="forks">111</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/sunset1995" target="_blank">sunset1995</a></td>
-                    <td class="contributors"><a href="https://github.com/sunset1995" target="_blank">sunset1995</a></td>
-                    <td class="reason">專案擁有者 sunset1995 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">132</td>
-                    <td class="project-name"><a href="https://github.com/david942j/seccomp-tools" target="_blank">seccomp-tools</a></td>
-                    <td class="stars">1,050</td>
-                    <td class="forks">71</td>
-                    <td><span class="language">Ruby</span></td>
-                    <td><a href="https://github.com/david942j" target="_blank">david942j</a></td>
-                    <td class="contributors"><a href="https://github.com/david942j" target="_blank">david942j</a></td>
-                    <td class="reason">專案擁有者 david942j 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">133</td>
-                    <td class="project-name"><a href="https://github.com/jserv/amacc" target="_blank">amacc</a></td>
-                    <td class="stars">1,041</td>
-                    <td class="forks">162</td>
-                    <td><span class="language">C</span></td>
-                    <td><a href="https://github.com/jserv" target="_blank">jserv</a></td>
-                    <td class="contributors"><a href="https://github.com/jserv" target="_blank">jserv</a></td>
-                    <td class="reason">專案擁有者 jserv 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">134</td>
-                    <td class="project-name"><a href="https://github.com/twtrubiks/Git-Tutorials" target="_blank">Git-Tutorials</a></td>
-                    <td class="stars">1,039</td>
-                    <td class="forks">310</td>
-                    <td>-</td>
-                    <td><a href="https://github.com/twtrubiks" target="_blank">twtrubiks</a></td>
-                    <td class="contributors"><a href="https://github.com/twtrubiks" target="_blank">twtrubiks</a></td>
-                    <td class="reason">專案擁有者 twtrubiks 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">135</td>
-                    <td class="project-name"><a href="https://github.com/emn178/online-tools" target="_blank">online-tools</a></td>
-                    <td class="stars">993</td>
-                    <td class="forks">418</td>
-                    <td><span class="language">HTML</span></td>
-                    <td><a href="https://github.com/emn178" target="_blank">emn178</a></td>
-                    <td class="contributors"><a href="https://github.com/emn178" target="_blank">emn178</a></td>
-                    <td class="reason">專案擁有者 emn178 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">136</td>
-                    <td class="project-name"><a href="https://github.com/vue-final/vue-final-modal" target="_blank">vue-final-modal</a></td>
-                    <td class="stars">989</td>
-                    <td class="forks">101</td>
-                    <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/vue-final" target="_blank">vue-final</a></td>
-                    <td class="contributors"><a href="https://github.com/hunterliu1003" target="_blank">hunterliu1003</a></td>
-                    <td class="reason">台灣開發者 hunterliu1003 是專案的第一貢獻者</td>
-                </tr>
-                <tr>
-                    <td class="rank">137</td>
-                    <td class="project-name"><a href="https://github.com/JustinSDK/JavaSE6Tutorial" target="_blank">JavaSE6Tutorial</a></td>
-                    <td class="stars">983</td>
-                    <td class="forks">312</td>
-                    <td><span class="language">Java</span></td>
-                    <td><a href="https://github.com/JustinSDK" target="_blank">JustinSDK</a></td>
-                    <td class="contributors"><a href="https://github.com/JustinSDK" target="_blank">JustinSDK</a></td>
-                    <td class="reason">專案擁有者 JustinSDK 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">138</td>
-                    <td class="project-name"><a href="https://github.com/Kudo/react-native-v8" target="_blank">react-native-v8</a></td>
-                    <td class="stars">953</td>
-                    <td class="forks">73</td>
-                    <td><span class="language">C++</span></td>
-                    <td><a href="https://github.com/Kudo" target="_blank">Kudo</a></td>
-                    <td class="contributors"><a href="https://github.com/Kudo" target="_blank">Kudo</a></td>
-                    <td class="reason">專案擁有者 Kudo 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">139</td>
-                    <td class="project-name"><a href="https://github.com/emn178/js-sha256" target="_blank">js-sha256</a></td>
-                    <td class="stars">941</td>
-                    <td class="forks">257</td>
-                    <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/emn178" target="_blank">emn178</a></td>
-                    <td class="contributors"><a href="https://github.com/emn178" target="_blank">emn178</a></td>
-                    <td class="reason">專案擁有者 emn178 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">140</td>
-                    <td class="project-name"><a href="https://github.com/kevingo/system-design-primer-zh-tw" target="_blank">system-design-primer-zh-tw</a></td>
-                    <td class="stars">937</td>
-                    <td class="forks">113</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/kevingo" target="_blank">kevingo</a></td>
-                    <td class="contributors"><a href="https://github.com/kevingo" target="_blank">kevingo</a></td>
-                    <td class="reason">專案擁有者 kevingo 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">141</td>
-                    <td class="project-name"><a href="https://github.com/othree/html5.vim" target="_blank">html5.vim</a></td>
-                    <td class="stars">937</td>
-                    <td class="forks">74</td>
-                    <td><span class="language">Vim Script</span></td>
-                    <td><a href="https://github.com/othree" target="_blank">othree</a></td>
-                    <td class="contributors"><a href="https://github.com/othree" target="_blank">othree</a></td>
-                    <td class="reason">專案擁有者 othree 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">142</td>
-                    <td class="project-name"><a href="https://github.com/scwuaptx/Pwngdb" target="_blank">Pwngdb</a></td>
-                    <td class="stars">936</td>
-                    <td class="forks">127</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/scwuaptx" target="_blank">scwuaptx</a></td>
-                    <td class="contributors"><a href="https://github.com/scwuaptx" target="_blank">scwuaptx</a></td>
-                    <td class="reason">專案擁有者 scwuaptx 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">143</td>
-                    <td class="project-name"><a href="https://github.com/ga642381/ML2021-Spring" target="_blank">ML2021-Spring</a></td>
-                    <td class="stars">926</td>
-                    <td class="forks">345</td>
-                    <td><span class="language">Jupyter Notebook</span></td>
-                    <td><a href="https://github.com/ga642381" target="_blank">ga642381</a></td>
-                    <td class="contributors"><a href="https://github.com/ga642381" target="_blank">ga642381</a></td>
-                    <td class="reason">專案擁有者 ga642381 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">144</td>
-                    <td class="project-name"><a href="https://github.com/aaaddress1/RunPE-In-Memory" target="_blank">RunPE-In-Memory</a></td>
-                    <td class="stars">917</td>
-                    <td class="forks">172</td>
-                    <td><span class="language">C++</span></td>
-                    <td><a href="https://github.com/aaaddress1" target="_blank">aaaddress1</a></td>
-                    <td class="contributors"><a href="https://github.com/aaaddress1" target="_blank">aaaddress1</a></td>
-                    <td class="reason">專案擁有者 aaaddress1 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">145</td>
-                    <td class="project-name"><a href="https://github.com/zake7749/Chatbot" target="_blank">Chatbot</a></td>
-                    <td class="stars">903</td>
-                    <td class="forks">271</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/zake7749" target="_blank">zake7749</a></td>
-                    <td class="contributors"><a href="https://github.com/zake7749" target="_blank">zake7749</a></td>
-                    <td class="reason">專案擁有者 zake7749 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">146</td>
-                    <td class="project-name"><a href="https://github.com/Gbuomprisco/ngx-chips" target="_blank">ngx-chips</a></td>
-                    <td class="stars">902</td>
-                    <td class="forks">357</td>
-                    <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/Gbuomprisco" target="_blank">Gbuomprisco</a></td>
-                    <td class="contributors"><a href="https://github.com/Gbuomprisco" target="_blank">Gbuomprisco</a></td>
-                    <td class="reason">專案擁有者 Gbuomprisco 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">147</td>
-                    <td class="project-name"><a href="https://github.com/yuan-xy/Linux-0.11" target="_blank">Linux-0.11</a></td>
-                    <td class="stars">894</td>
-                    <td class="forks">516</td>
-                    <td><span class="language">C</span></td>
-                    <td><a href="https://github.com/yuan-xy" target="_blank">yuan-xy</a></td>
-                    <td class="contributors"><a href="https://github.com/calee0219" target="_blank">calee0219</a></td>
-                    <td class="reason">台灣開發者 calee0219 是專案的第一貢獻者</td>
-                </tr>
-                <tr>
-                    <td class="rank">148</td>
-                    <td class="project-name"><a href="https://github.com/DanSnow/vue-recaptcha" target="_blank">vue-recaptcha</a></td>
-                    <td class="stars">894</td>
-                    <td class="forks">136</td>
-                    <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/DanSnow" target="_blank">DanSnow</a></td>
-                    <td class="contributors"><a href="https://github.com/DanSnow" target="_blank">DanSnow</a></td>
-                    <td class="reason">專案擁有者 DanSnow 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">149</td>
-                    <td class="project-name"><a href="https://github.com/KohakuBlueleaf/a1111-sd-webui-lycoris" target="_blank">a1111-sd-webui-lycoris</a></td>
-                    <td class="stars">890</td>
-                    <td class="forks">112</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/KohakuBlueleaf" target="_blank">KohakuBlueleaf</a></td>
-                    <td class="contributors"><a href="https://github.com/KohakuBlueleaf" target="_blank">KohakuBlueleaf</a></td>
-                    <td class="reason">專案擁有者 KohakuBlueleaf 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">150</td>
-                    <td class="project-name"><a href="https://github.com/topjohnwu/zygisk-module-sample" target="_blank">zygisk-module-sample</a></td>
-                    <td class="stars">878</td>
-                    <td class="forks">284</td>
-                    <td><span class="language">C++</span></td>
-                    <td><a href="https://github.com/topjohnwu" target="_blank">topjohnwu</a></td>
-                    <td class="contributors"><a href="https://github.com/topjohnwu" target="_blank">topjohnwu</a></td>
-                    <td class="reason">專案擁有者 topjohnwu 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">151</td>
-                    <td class="project-name"><a href="https://github.com/eric612/MobileNet-YOLO" target="_blank">MobileNet-YOLO</a></td>
-                    <td class="stars">871</td>
-                    <td class="forks">440</td>
-                    <td><span class="language">C++</span></td>
-                    <td><a href="https://github.com/eric612" target="_blank">eric612</a></td>
-                    <td class="contributors"><a href="https://github.com/eric612" target="_blank">eric612</a></td>
-                    <td class="reason">專案擁有者 eric612 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">152</td>
-                    <td class="project-name"><a href="https://github.com/twtrubiks/django-rest-framework-tutorial" target="_blank">django-rest-framework-tutorial</a></td>
-                    <td class="stars">870</td>
-                    <td class="forks">181</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/twtrubiks" target="_blank">twtrubiks</a></td>
-                    <td class="contributors"><a href="https://github.com/twtrubiks" target="_blank">twtrubiks</a></td>
-                    <td class="reason">專案擁有者 twtrubiks 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">153</td>
-                    <td class="project-name"><a href="https://github.com/terrylinooo/shieldon" target="_blank">shieldon</a></td>
-                    <td class="stars">869</td>
-                    <td class="forks">105</td>
-                    <td><span class="language">PHP</span></td>
-                    <td><a href="https://github.com/terrylinooo" target="_blank">terrylinooo</a></td>
-                    <td class="contributors"><a href="https://github.com/terrylinooo" target="_blank">terrylinooo</a></td>
-                    <td class="reason">專案擁有者 terrylinooo 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">154</td>
-                    <td class="project-name"><a href="https://github.com/recca0120/laravel-terminal" target="_blank">laravel-terminal</a></td>
-                    <td class="stars">866</td>
-                    <td class="forks">60</td>
-                    <td><span class="language">PHP</span></td>
-                    <td><a href="https://github.com/recca0120" target="_blank">recca0120</a></td>
-                    <td class="contributors"><a href="https://github.com/recca0120" target="_blank">recca0120</a></td>
-                    <td class="reason">專案擁有者 recca0120 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">155</td>
-                    <td class="project-name"><a href="https://github.com/JustinSDK/dotSCAD" target="_blank">dotSCAD</a></td>
-                    <td class="stars">865</td>
-                    <td class="forks">114</td>
-                    <td><span class="language">OpenSCAD</span></td>
-                    <td><a href="https://github.com/JustinSDK" target="_blank">JustinSDK</a></td>
-                    <td class="contributors"><a href="https://github.com/JustinSDK" target="_blank">JustinSDK</a></td>
-                    <td class="reason">專案擁有者 JustinSDK 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">156</td>
-                    <td class="project-name"><a href="https://github.com/blueswen/fastapi-observability" target="_blank">fastapi-observability</a></td>
-                    <td class="stars">860</td>
-                    <td class="forks">122</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/blueswen" target="_blank">blueswen</a></td>
-                    <td class="contributors"><a href="https://github.com/blueswen" target="_blank">blueswen</a></td>
-                    <td class="reason">專案擁有者 blueswen 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">157</td>
-                    <td class="project-name"><a href="https://github.com/guan-yuan/Awesome-AutoML-and-Lightweight-Models" target="_blank">Awesome-AutoML-and-Lightweight-Models</a></td>
-                    <td class="stars">853</td>
-                    <td class="forks">159</td>
-                    <td>-</td>
-                    <td><a href="https://github.com/guan-yuan" target="_blank">guan-yuan</a></td>
-                    <td class="contributors"><a href="https://github.com/guan-yuan" target="_blank">guan-yuan</a></td>
-                    <td class="reason">專案擁有者 guan-yuan 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">158</td>
-                    <td class="project-name"><a href="https://github.com/graphql-community/koa-graphql" target="_blank">koa-graphql</a></td>
-                    <td class="stars">843</td>
-                    <td class="forks">62</td>
-                    <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/graphql-community" target="_blank">graphql-community</a></td>
-                    <td class="contributors"><a href="https://github.com/chentsulin" target="_blank">chentsulin</a></td>
-                    <td class="reason">台灣開發者 chentsulin 是專案的第一貢獻者</td>
-                </tr>
-                <tr>
-                    <td class="rank">159</td>
-                    <td class="project-name"><a href="https://github.com/scwuaptx/HITCON-Training" target="_blank">HITCON-Training</a></td>
-                    <td class="stars">832</td>
-                    <td class="forks">196</td>
-                    <td><span class="language">C</span></td>
-                    <td><a href="https://github.com/scwuaptx" target="_blank">scwuaptx</a></td>
-                    <td class="contributors"><a href="https://github.com/scwuaptx" target="_blank">scwuaptx</a></td>
-                    <td class="reason">專案擁有者 scwuaptx 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">160</td>
-                    <td class="project-name"><a href="https://github.com/calee0219/awesome-5g" target="_blank">awesome-5g</a></td>
-                    <td class="stars">829</td>
-                    <td class="forks">147</td>
-                    <td><span class="language">Shell</span></td>
-                    <td><a href="https://github.com/calee0219" target="_blank">calee0219</a></td>
-                    <td class="contributors"><a href="https://github.com/calee0219" target="_blank">calee0219</a></td>
-                    <td class="reason">專案擁有者 calee0219 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">161</td>
-                    <td class="project-name"><a href="https://github.com/JacobLinCool/LeetCode-Stats-Card" target="_blank">LeetCode-Stats-Card</a></td>
-                    <td class="stars">827</td>
-                    <td class="forks">115</td>
-                    <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/JacobLinCool" target="_blank">JacobLinCool</a></td>
-                    <td class="contributors"><a href="https://github.com/JacobLinCool" target="_blank">JacobLinCool</a></td>
-                    <td class="reason">專案擁有者 JacobLinCool 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">162</td>
-                    <td class="project-name"><a href="https://github.com/luc-github/ESP3D-WEBUI" target="_blank">ESP3D-WEBUI</a></td>
-                    <td class="stars">825</td>
-                    <td class="forks">324</td>
-                    <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/luc-github" target="_blank">luc-github</a></td>
-                    <td class="contributors"><a href="https://github.com/luc-github" target="_blank">luc-github</a></td>
-                    <td class="reason">專案擁有者 luc-github 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">163</td>
-                    <td class="project-name"><a href="https://github.com/emn178/js-md5" target="_blank">js-md5</a></td>
-                    <td class="stars">818</td>
-                    <td class="forks">430</td>
-                    <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/emn178" target="_blank">emn178</a></td>
-                    <td class="contributors"><a href="https://github.com/emn178" target="_blank">emn178</a></td>
-                    <td class="reason">專案擁有者 emn178 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">164</td>
-                    <td class="project-name"><a href="https://github.com/c9s/r3" target="_blank">r3</a></td>
-                    <td class="stars">815</td>
-                    <td class="forks">83</td>
-                    <td><span class="language">C</span></td>
-                    <td><a href="https://github.com/c9s" target="_blank">c9s</a></td>
-                    <td class="contributors"><a href="https://github.com/c9s" target="_blank">c9s</a></td>
-                    <td class="reason">專案擁有者 c9s 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">165</td>
-                    <td class="project-name"><a href="https://github.com/protomaps/protomaps-leaflet" target="_blank">protomaps-leaflet</a></td>
-                    <td class="stars">808</td>
-                    <td class="forks">51</td>
-                    <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/protomaps" target="_blank">protomaps</a></td>
-                    <td class="contributors"><a href="https://github.com/bdon" target="_blank">bdon</a></td>
-                    <td class="reason">台灣開發者 bdon 是專案的第一貢獻者</td>
-                </tr>
-                <tr>
-                    <td class="rank">166</td>
-                    <td class="project-name"><a href="https://github.com/kwea123/VTuber_Unity" target="_blank">VTuber_Unity</a></td>
-                    <td class="stars">801</td>
-                    <td class="forks">114</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/kwea123" target="_blank">kwea123</a></td>
-                    <td class="contributors"><a href="https://github.com/kwea123" target="_blank">kwea123</a></td>
-                    <td class="reason">專案擁有者 kwea123 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">167</td>
-                    <td class="project-name"><a href="https://github.com/EragonJ/Trip.js" target="_blank">Trip.js</a></td>
-                    <td class="stars">793</td>
-                    <td class="forks">107</td>
-                    <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/EragonJ" target="_blank">EragonJ</a></td>
-                    <td class="contributors"><a href="https://github.com/EragonJ" target="_blank">EragonJ</a></td>
-                    <td class="reason">專案擁有者 EragonJ 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">168</td>
-                    <td class="project-name"><a href="https://github.com/c9s/goprocinfo" target="_blank">goprocinfo</a></td>
-                    <td class="stars">788</td>
-                    <td class="forks">103</td>
-                    <td><span class="language">Go</span></td>
-                    <td><a href="https://github.com/c9s" target="_blank">c9s</a></td>
-                    <td class="contributors"><a href="https://github.com/c9s" target="_blank">c9s</a></td>
-                    <td class="reason">專案擁有者 c9s 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">169</td>
-                    <td class="project-name"><a href="https://github.com/doggy8088/github-copilot-configs" target="_blank">github-copilot-configs</a></td>
-                    <td class="stars">780</td>
-                    <td class="forks">100</td>
-                    <td>-</td>
-                    <td><a href="https://github.com/doggy8088" target="_blank">doggy8088</a></td>
-                    <td class="contributors"><a href="https://github.com/doggy8088" target="_blank">doggy8088</a></td>
-                    <td class="reason">專案擁有者 doggy8088 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">170</td>
-                    <td class="project-name"><a href="https://github.com/ButTaiwan/genyo-font" target="_blank">genyo-font</a></td>
-                    <td class="stars">776</td>
-                    <td class="forks">51</td>
-                    <td>-</td>
-                    <td><a href="https://github.com/ButTaiwan" target="_blank">ButTaiwan</a></td>
-                    <td class="contributors"><a href="https://github.com/ButTaiwan" target="_blank">ButTaiwan</a></td>
-                    <td class="reason">專案擁有者 ButTaiwan 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">171</td>
-                    <td class="project-name"><a href="https://github.com/muan/scribble" target="_blank">scribble</a></td>
-                    <td class="stars">767</td>
-                    <td class="forks">661</td>
-                    <td><span class="language">HTML</span></td>
-                    <td><a href="https://github.com/muan" target="_blank">muan</a></td>
-                    <td class="contributors"><a href="https://github.com/muan" target="_blank">muan</a></td>
-                    <td class="reason">專案擁有者 muan 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">172</td>
-                    <td class="project-name"><a href="https://github.com/ethanhuang13/knil" target="_blank">knil</a></td>
-                    <td class="stars">766</td>
-                    <td class="forks">29</td>
-                    <td><span class="language">Swift</span></td>
-                    <td><a href="https://github.com/ethanhuang13" target="_blank">ethanhuang13</a></td>
-                    <td class="contributors"><a href="https://github.com/ethanhuang13" target="_blank">ethanhuang13</a></td>
-                    <td class="reason">專案擁有者 ethanhuang13 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">173</td>
-                    <td class="project-name"><a href="https://github.com/kuanyui/moe-theme.el" target="_blank">moe-theme.el</a></td>
-                    <td class="stars">759</td>
-                    <td class="forks">64</td>
-                    <td><span class="language">Emacs Lisp</span></td>
-                    <td><a href="https://github.com/kuanyui" target="_blank">kuanyui</a></td>
-                    <td class="contributors"><a href="https://github.com/kuanyui" target="_blank">kuanyui</a></td>
-                    <td class="reason">專案擁有者 kuanyui 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">174</td>
-                    <td class="project-name"><a href="https://github.com/FongMi/CatVodSpider" target="_blank">CatVodSpider</a></td>
-                    <td class="stars">759</td>
-                    <td class="forks">781</td>
-                    <td><span class="language">Java</span></td>
-                    <td><a href="https://github.com/FongMi" target="_blank">FongMi</a></td>
-                    <td class="contributors"><a href="https://github.com/FongMi" target="_blank">FongMi</a></td>
-                    <td class="reason">專案擁有者 FongMi 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">175</td>
-                    <td class="project-name"><a href="https://github.com/ethanhuang13/NSAttributedStringBuilder" target="_blank">NSAttributedStringBuilder</a></td>
-                    <td class="stars">757</td>
-                    <td class="forks">35</td>
-                    <td><span class="language">Swift</span></td>
-                    <td><a href="https://github.com/ethanhuang13" target="_blank">ethanhuang13</a></td>
-                    <td class="contributors"><a href="https://github.com/ethanhuang13" target="_blank">ethanhuang13</a></td>
-                    <td class="reason">專案擁有者 ethanhuang13 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">176</td>
-                    <td class="project-name"><a href="https://github.com/othree/markdown-syntax-zhtw" target="_blank">markdown-syntax-zhtw</a></td>
-                    <td class="stars">757</td>
-                    <td class="forks">838</td>
-                    <td><span class="language">HTML</span></td>
-                    <td><a href="https://github.com/othree" target="_blank">othree</a></td>
-                    <td class="contributors"><a href="https://github.com/othree" target="_blank">othree</a></td>
-                    <td class="reason">專案擁有者 othree 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">177</td>
-                    <td class="project-name"><a href="https://github.com/enginebai/MovieHunt" target="_blank">MovieHunt</a></td>
-                    <td class="stars">757</td>
-                    <td class="forks">83</td>
-                    <td><span class="language">Kotlin</span></td>
-                    <td><a href="https://github.com/enginebai" target="_blank">enginebai</a></td>
-                    <td class="contributors"><a href="https://github.com/enginebai" target="_blank">enginebai</a></td>
-                    <td class="reason">專案擁有者 enginebai 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">178</td>
-                    <td class="project-name"><a href="https://github.com/TerminalFi/LSP-copilot" target="_blank">LSP-copilot</a></td>
-                    <td class="stars">756</td>
-                    <td class="forks">33</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/TerminalFi" target="_blank">TerminalFi</a></td>
-                    <td class="contributors"><a href="https://github.com/jfcherng" target="_blank">jfcherng</a></td>
-                    <td class="reason">台灣開發者 jfcherng 是專案的第一貢獻者</td>
-                </tr>
-                <tr>
-                    <td class="rank">179</td>
-                    <td class="project-name"><a href="https://github.com/kairen/kubeadm-ansible" target="_blank">kubeadm-ansible</a></td>
-                    <td class="stars">739</td>
-                    <td class="forks">379</td>
-                    <td><span class="language">Jinja</span></td>
-                    <td><a href="https://github.com/kairen" target="_blank">kairen</a></td>
-                    <td class="contributors"><a href="https://github.com/kairen" target="_blank">kairen</a></td>
-                    <td class="reason">專案擁有者 kairen 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">180</td>
-                    <td class="project-name"><a href="https://github.com/shakalaca/MagiskOnEmulator" target="_blank">MagiskOnEmulator</a></td>
-                    <td class="stars">737</td>
-                    <td class="forks">118</td>
-                    <td><span class="language">Shell</span></td>
-                    <td><a href="https://github.com/shakalaca" target="_blank">shakalaca</a></td>
-                    <td class="contributors"><a href="https://github.com/shakalaca" target="_blank">shakalaca</a></td>
-                    <td class="reason">專案擁有者 shakalaca 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">181</td>
-                    <td class="project-name"><a href="https://github.com/voidful/awesome-chatgpt-dataset" target="_blank">awesome-chatgpt-dataset</a></td>
-                    <td class="stars">735</td>
-                    <td class="forks">61</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/voidful" target="_blank">voidful</a></td>
-                    <td class="contributors"><a href="https://github.com/voidful" target="_blank">voidful</a></td>
-                    <td class="reason">專案擁有者 voidful 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">182</td>
-                    <td class="project-name"><a href="https://github.com/Mini-ghost/vorms" target="_blank">vorms</a></td>
-                    <td class="stars">726</td>
-                    <td class="forks">29</td>
-                    <td><span class="language">TypeScript</span></td>
-                    <td><a href="https://github.com/Mini-ghost" target="_blank">Mini-ghost</a></td>
-                    <td class="contributors"><a href="https://github.com/Mini-ghost" target="_blank">Mini-ghost</a></td>
-                    <td class="reason">專案擁有者 Mini-ghost 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">183</td>
-                    <td class="project-name"><a href="https://github.com/vinta/fuck-coding-interviews" target="_blank">fuck-coding-interviews</a></td>
-                    <td class="stars">723</td>
-                    <td class="forks">86</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/vinta" target="_blank">vinta</a></td>
-                    <td class="contributors"><a href="https://github.com/vinta" target="_blank">vinta</a></td>
-                    <td class="reason">專案擁有者 vinta 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">184</td>
-                    <td class="project-name"><a href="https://github.com/PyPtt/PyPtt" target="_blank">PyPtt</a></td>
-                    <td class="stars">712</td>
-                    <td class="forks">99</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/PyPtt" target="_blank">PyPtt</a></td>
-                    <td class="contributors"><a href="https://github.com/PttCodingMan" target="_blank">PttCodingMan</a></td>
-                    <td class="reason">台灣開發者 PttCodingMan 是專案的第一貢獻者</td>
-                </tr>
-                <tr>
-                    <td class="rank">185</td>
-                    <td class="project-name"><a href="https://github.com/mini-software/MiniWord" target="_blank">MiniWord</a></td>
-                    <td class="stars">709</td>
-                    <td class="forks">93</td>
-                    <td><span class="language">C#</span></td>
-                    <td><a href="https://github.com/mini-software" target="_blank">mini-software</a></td>
-                    <td class="contributors"><a href="https://github.com/shps951023" target="_blank">shps951023</a></td>
-                    <td class="reason">台灣開發者 shps951023 是專案的第一貢獻者</td>
-                </tr>
-                <tr>
-                    <td class="rank">186</td>
-                    <td class="project-name"><a href="https://github.com/vibertthio/awesome-machine-learning-art" target="_blank">awesome-machine-learning-art</a></td>
-                    <td class="stars">706</td>
-                    <td class="forks">56</td>
-                    <td>-</td>
-                    <td><a href="https://github.com/vibertthio" target="_blank">vibertthio</a></td>
-                    <td class="contributors"><a href="https://github.com/vibertthio" target="_blank">vibertthio</a></td>
-                    <td class="reason">專案擁有者 vibertthio 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">187</td>
-                    <td class="project-name"><a href="https://github.com/f9micro/f9-kernel" target="_blank">f9-kernel</a></td>
-                    <td class="stars">695</td>
-                    <td class="forks">148</td>
-                    <td><span class="language">C</span></td>
-                    <td><a href="https://github.com/f9micro" target="_blank">f9micro</a></td>
-                    <td class="contributors"><a href="https://github.com/jserv" target="_blank">jserv</a></td>
-                    <td class="reason">台灣開發者 jserv 是專案的第一貢獻者</td>
-                </tr>
-                <tr>
-                    <td class="rank">188</td>
-                    <td class="project-name"><a href="https://github.com/ButTaiwan/gensen-font" target="_blank">gensen-font</a></td>
-                    <td class="stars">695</td>
-                    <td class="forks">36</td>
-                    <td>-</td>
-                    <td><a href="https://github.com/ButTaiwan" target="_blank">ButTaiwan</a></td>
-                    <td class="contributors"><a href="https://github.com/ButTaiwan" target="_blank">ButTaiwan</a></td>
-                    <td class="reason">專案擁有者 ButTaiwan 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">189</td>
-                    <td class="project-name"><a href="https://github.com/nicehorse06/se-job" target="_blank">se-job</a></td>
-                    <td class="stars">682</td>
-                    <td class="forks">50</td>
-                    <td><span class="language">CSS</span></td>
-                    <td><a href="https://github.com/nicehorse06" target="_blank">nicehorse06</a></td>
-                    <td class="contributors"><a href="https://github.com/nicehorse06" target="_blank">nicehorse06</a></td>
-                    <td class="reason">專案擁有者 nicehorse06 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">190</td>
-                    <td class="project-name"><a href="https://github.com/floydwch/kaggle-cli" target="_blank">kaggle-cli</a></td>
-                    <td class="stars">679</td>
-                    <td class="forks">93</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/floydwch" target="_blank">floydwch</a></td>
-                    <td class="contributors"><a href="https://github.com/floydwch" target="_blank">floydwch</a></td>
-                    <td class="reason">專案擁有者 floydwch 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">191</td>
-                    <td class="project-name"><a href="https://github.com/roberthsu2003/python" target="_blank">python</a></td>
-                    <td class="stars">675</td>
-                    <td class="forks">34</td>
-                    <td><span class="language">Jupyter Notebook</span></td>
-                    <td><a href="https://github.com/roberthsu2003" target="_blank">roberthsu2003</a></td>
-                    <td class="contributors"><a href="https://github.com/roberthsu2003" target="_blank">roberthsu2003</a></td>
-                    <td class="reason">專案擁有者 roberthsu2003 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">192</td>
-                    <td class="project-name"><a href="https://github.com/JingShing/novelai-colab-ver" target="_blank">novelai-colab-ver</a></td>
-                    <td class="stars">673</td>
-                    <td class="forks">307</td>
-                    <td><span class="language">Jupyter Notebook</span></td>
-                    <td><a href="https://github.com/JingShing" target="_blank">JingShing</a></td>
-                    <td class="contributors"><a href="https://github.com/JingShing" target="_blank">JingShing</a></td>
-                    <td class="reason">專案擁有者 JingShing 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">193</td>
-                    <td class="project-name"><a href="https://github.com/ButTaiwan/genryu-font" target="_blank">genryu-font</a></td>
-                    <td class="stars">671</td>
-                    <td class="forks">42</td>
-                    <td>-</td>
-                    <td><a href="https://github.com/ButTaiwan" target="_blank">ButTaiwan</a></td>
-                    <td class="contributors"><a href="https://github.com/ButTaiwan" target="_blank">ButTaiwan</a></td>
-                    <td class="reason">專案擁有者 ButTaiwan 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">194</td>
-                    <td class="project-name"><a href="https://github.com/KusakabeShi/free365" target="_blank">free365</a></td>
-                    <td class="stars">667</td>
-                    <td class="forks">131</td>
-                    <td>-</td>
-                    <td><a href="https://github.com/KusakabeShi" target="_blank">KusakabeShi</a></td>
-                    <td class="contributors"><a href="https://github.com/KusakabeShi" target="_blank">KusakabeShi</a></td>
-                    <td class="reason">專案擁有者 KusakabeShi 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">195</td>
-                    <td class="project-name"><a href="https://github.com/iansinnott/react-string-replace" target="_blank">react-string-replace</a></td>
-                    <td class="stars">662</td>
-                    <td class="forks">54</td>
-                    <td><span class="language">JavaScript</span></td>
-                    <td><a href="https://github.com/iansinnott" target="_blank">iansinnott</a></td>
-                    <td class="contributors"><a href="https://github.com/iansinnott" target="_blank">iansinnott</a></td>
-                    <td class="reason">專案擁有者 iansinnott 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">196</td>
-                    <td class="project-name"><a href="https://github.com/terrylinooo/githuber-md" target="_blank">githuber-md</a></td>
-                    <td class="stars">660</td>
-                    <td class="forks">96</td>
-                    <td><span class="language">PHP</span></td>
-                    <td><a href="https://github.com/terrylinooo" target="_blank">terrylinooo</a></td>
-                    <td class="contributors"><a href="https://github.com/terrylinooo" target="_blank">terrylinooo</a></td>
-                    <td class="reason">專案擁有者 terrylinooo 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">197</td>
-                    <td class="project-name"><a href="https://github.com/init-engineer/init.engineer" target="_blank">init.engineer</a></td>
-                    <td class="stars">655</td>
-                    <td class="forks">41</td>
-                    <td><span class="language">PHP</span></td>
-                    <td><a href="https://github.com/init-engineer" target="_blank">init-engineer</a></td>
-                    <td class="contributors"><a href="https://github.com/Kantai235" target="_blank">Kantai235</a></td>
-                    <td class="reason">台灣開發者 Kantai235 是專案的第一貢獻者</td>
-                </tr>
-                <tr>
-                    <td class="rank">198</td>
-                    <td class="project-name"><a href="https://github.com/ButTaiwan/genwan-font" target="_blank">genwan-font</a></td>
-                    <td class="stars">654</td>
-                    <td class="forks">32</td>
-                    <td>-</td>
-                    <td><a href="https://github.com/ButTaiwan" target="_blank">ButTaiwan</a></td>
-                    <td class="contributors"><a href="https://github.com/ButTaiwan" target="_blank">ButTaiwan</a></td>
-                    <td class="reason">專案擁有者 ButTaiwan 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">199</td>
-                    <td class="project-name"><a href="https://github.com/scottt/debugbreak" target="_blank">debugbreak</a></td>
-                    <td class="stars">653</td>
-                    <td class="forks">77</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/scottt" target="_blank">scottt</a></td>
-                    <td class="contributors"><a href="https://github.com/scottt" target="_blank">scottt</a></td>
-                    <td class="reason">專案擁有者 scottt 來自台灣</td>
-                </tr>
-                <tr>
-                    <td class="rank">200</td>
-                    <td class="project-name"><a href="https://github.com/pochih/CBIR" target="_blank">CBIR</a></td>
-                    <td class="stars">650</td>
-                    <td class="forks">211</td>
-                    <td><span class="language">Python</span></td>
-                    <td><a href="https://github.com/pochih" target="_blank">pochih</a></td>
-                    <td class="contributors"><a href="https://github.com/pochih" target="_blank">pochih</a></td>
-                    <td class="reason">專案擁有者 pochih 來自台灣</td>
                 </tr>
             </tbody>
         </table>
