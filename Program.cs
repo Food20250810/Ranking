@@ -10,6 +10,23 @@ using Newtonsoft.Json.Serialization;
 
 namespace TaiwanPopularDevelopers
 {
+    public enum RegionType
+    {
+        Taiwan,
+        HongKongAndMacau,
+        Malaysia,
+        Singapore
+    }
+
+    public class RegionConfig
+    {
+        public RegionType Type { get; set; }
+        public string Name { get; set; } = "";
+        public string ChineseName { get; set; } = "";
+        public string DirectoryName { get; set; } = "";
+        public string[] SearchQueries { get; set; } = new string[0];
+    }
+
     public class GitHubUser
     {
         public string Login { get; set; } = "";
@@ -59,7 +76,7 @@ namespace TaiwanPopularDevelopers
         public int CommitCount { get; set; } = 0; // 貢獻的commit數量
     }
 
-    public class TaiwanProject
+    public class RegionProject
     {
         public string Name { get; set; } = "";
         public string FullName { get; set; } = "";
@@ -70,24 +87,24 @@ namespace TaiwanPopularDevelopers
         public string OwnerLogin { get; set; } = "";
         public string OwnerType { get; set; } = ""; // User or Organization
         public string Description { get; set; } = "";
-        public string Reason { get; set; } = ""; // 為什麼算是台灣專案的原因
-        public List<string> TaiwanContributors { get; set; } = new List<string>(); // 台灣貢獻者列表
+        public string Reason { get; set; } = ""; // 為什麼算是區域專案的原因
+        public List<string> RegionContributors { get; set; } = new List<string>(); // 區域貢獻者列表
 
         /// <summary>
-        /// 獲取排序後的台灣貢獻者列表，台灣開發者排在前面
+        /// 獲取排序後的區域貢獻者列表，區域開發者排在前面
         /// </summary>
-        /// <param name="taiwanUsers">台灣開發者用戶列表</param>
+        /// <param name="regionUsers">區域開發者用戶列表</param>
         /// <returns>排序後的貢獻者列表</returns>
-        public List<string> GetSortedTaiwanContributors(List<GitHubUser> taiwanUsers)
+        public List<string> GetSortedRegionContributors(List<GitHubUser> regionUsers)
         {
-            var taiwanUserLogins = new HashSet<string>(taiwanUsers.Select(u => u.Login), StringComparer.OrdinalIgnoreCase);
+            var regionUserLogins = new HashSet<string>(regionUsers.Select(u => u.Login), StringComparer.OrdinalIgnoreCase);
             
-            // 先取台灣開發者，再取其他貢獻者，各自按字母順序排序
-            var taiwanContributors = TaiwanContributors.Where(c => taiwanUserLogins.Contains(c)).OrderBy(c => c).ToList();
-            var otherContributors = TaiwanContributors.Where(c => !taiwanUserLogins.Contains(c)).OrderBy(c => c).ToList();
+            // 先取區域開發者，再取其他貢獻者，各自按字母順序排序
+            var regionContributors = RegionContributors.Where(c => regionUserLogins.Contains(c)).OrderBy(c => c).ToList();
+            var otherContributors = RegionContributors.Where(c => !regionUserLogins.Contains(c)).OrderBy(c => c).ToList();
             
             var result = new List<string>();
-            result.AddRange(taiwanContributors);
+            result.AddRange(regionContributors);
             result.AddRange(otherContributors);
             
             return result;
@@ -108,6 +125,9 @@ namespace TaiwanPopularDevelopers
         private static HttpClient httpClient = new HttpClient();
         private static string? githubToken;
         private static readonly int MinFollowers = 100; // 最低追蹤者數量門檻
+        
+        // 當前選擇的區域配置
+        private static RegionConfig currentRegion = GetTaiwanConfig();
         
         // API調用統計
         private static readonly Dictionary<string, int> apiCallCounts = new Dictionary<string, int>();
@@ -130,9 +150,135 @@ namespace TaiwanPopularDevelopers
         private static readonly TimeSpan cacheExpireTime = TimeSpan.FromHours(24*7); // 緩存24小時過期
         
         // 緩存文件路徑
-        private static readonly string cacheDirectory = "Cache";
-        private static readonly string apiCacheFile = Path.Combine(cacheDirectory, "api_cache.json");
-        private static readonly string apiTimestampsFile = Path.Combine(cacheDirectory, "api_timestamps.json");
+        private static string cacheDirectory => Path.Combine(currentRegion.DirectoryName, "Cache");
+        private static string apiCacheFile => Path.Combine(cacheDirectory, "api_cache.json");
+        private static string apiTimestampsFile => Path.Combine(cacheDirectory, "api_timestamps.json");
+
+        /// <summary>
+        /// 獲取台灣區域配置
+        /// </summary>
+        static RegionConfig GetTaiwanConfig()
+        {
+            return new RegionConfig
+            {
+                Type = RegionType.Taiwan,
+                Name = "Taiwan",
+                ChineseName = "台灣",
+                DirectoryName = "Taiwan",
+                SearchQueries = new string[]
+                {
+                    $"followers:>{MinFollowers}+location:Taiwan",
+                    $"followers:>{MinFollowers}+location:Taipei",
+                    $"followers:>{MinFollowers}+location:Kaohsiung",
+                    $"followers:>{MinFollowers}+location:\"New Taipei\"",
+                    $"followers:>{MinFollowers}+location:Taoyuan",
+                    $"followers:>{MinFollowers}+location:Taichung",
+                    $"followers:>{MinFollowers}+location:Tainan",
+                    $"followers:>{MinFollowers}+location:Hsinchu",
+                    $"followers:>{MinFollowers}+location:Keelung",
+                    $"followers:>{MinFollowers}+location:Chiayi",
+                    $"followers:>{MinFollowers}+location:Changhua",
+                    $"followers:>{MinFollowers}+location:Yunlin",
+                    $"followers:>{MinFollowers}+location:Nantou",
+                    $"followers:>{MinFollowers}+location:Pingtung",
+                    $"followers:>{MinFollowers}+location:Yilan",
+                    $"followers:>{MinFollowers}+location:Hualien",
+                    $"followers:>{MinFollowers}+location:Taitung",
+                    $"followers:>{MinFollowers}+location:Penghu",
+                    $"followers:>{MinFollowers}+location:Kinmen",
+                    $"followers:>{MinFollowers}+location:Matsu"
+                }
+            };
+        }
+
+        /// <summary>
+        /// 獲取香港澳門區域配置
+        /// </summary>
+        static RegionConfig GetHongKongAndMacauConfig()
+        {
+            return new RegionConfig
+            {
+                Type = RegionType.HongKongAndMacau,
+                Name = "Hong Kong and Macau",
+                ChineseName = "香港澳門",
+                DirectoryName = "HongKongAndMacau",
+                SearchQueries = new string[]
+                {
+                    // 香港相關地區
+                    $"followers:>{MinFollowers}+location:\"Hong Kong\"",
+                    $"followers:>{MinFollowers}+location:HK",
+                    $"followers:>{MinFollowers}+location:Hongkong",
+                    $"followers:>{MinFollowers}+location:\"Hong Kong SAR\"",
+                    $"followers:>{MinFollowers}+location:\"香港\"",
+                    // 澳門相關地區
+                    $"followers:>{MinFollowers}+location:Macau",
+                    $"followers:>{MinFollowers}+location:Macao",
+                    $"followers:>{MinFollowers}+location:\"Macau SAR\"",
+                    $"followers:>{MinFollowers}+location:\"澳門\""
+                }
+            };
+        }
+
+        /// <summary>
+        /// 獲取馬來西亞區域配置
+        /// </summary>
+        static RegionConfig GetMalaysiaConfig()
+        {
+            return new RegionConfig
+            {
+                Type = RegionType.Malaysia,
+                Name = "Malaysia",
+                ChineseName = "馬來西亞",
+                DirectoryName = "Malaysia",
+                SearchQueries = new string[]
+                {
+                    // 馬來西亞相關地區
+                    $"followers:>{MinFollowers}+location:Malaysia",
+                    $"followers:>{MinFollowers}+location:\"Kuala Lumpur\"",
+                    $"followers:>{MinFollowers}+location:\"Kuala+Lumpur\"",
+                    $"followers:>{MinFollowers}+location:KL",
+                    $"followers:>{MinFollowers}+location:Selangor",
+                    $"followers:>{MinFollowers}+location:Johor",
+                    $"followers:>{MinFollowers}+location:Penang",
+                    $"followers:>{MinFollowers}+location:Perak",
+                    $"followers:>{MinFollowers}+location:Sabah",
+                    $"followers:>{MinFollowers}+location:Sarawak",
+                    $"followers:>{MinFollowers}+location:Kedah",
+                    $"followers:>{MinFollowers}+location:Kelantan",
+                    $"followers:>{MinFollowers}+location:Terengganu",
+                    $"followers:>{MinFollowers}+location:Pahang",
+                    $"followers:>{MinFollowers}+location:Negeri+Sembilan",
+                    $"followers:>{MinFollowers}+location:Melaka",
+                    $"followers:>{MinFollowers}+location:Malacca",
+                    $"followers:>{MinFollowers}+location:Perlis",
+                    $"followers:>{MinFollowers}+location:Putrajaya",
+                    $"followers:>{MinFollowers}+location:Labuan"
+                }
+            };
+        }
+
+        /// <summary>
+        /// 獲取新加坡區域配置
+        /// </summary>
+        static RegionConfig GetSingaporeConfig()
+        {
+            return new RegionConfig
+            {
+                Type = RegionType.Singapore,
+                Name = "Singapore",
+                ChineseName = "新加坡",
+                DirectoryName = "Singapore",
+                SearchQueries = new string[]
+                {
+                    // 新加坡相關地區
+                    $"followers:>{MinFollowers}+location:Singapore",
+                    $"followers:>{MinFollowers}+location:SG",
+                    $"followers:>{MinFollowers}+location:\"新加坡\"",
+                    $"followers:>{MinFollowers}+location:\"Singapore, SG\"",
+                    $"followers:>{MinFollowers}+location:\"Singapore, Singapore\""
+                }
+            };
+        }
 
         private static readonly string[] SearchQueries = {
             $"followers:>{MinFollowers}+location:Taiwan",
@@ -275,6 +421,55 @@ namespace TaiwanPopularDevelopers
         }
 
         /// <summary>
+        /// 選擇要處理的區域
+        /// </summary>
+        static void SelectRegion()
+        {
+            Console.WriteLine("請選擇要處理的區域:");
+            Console.WriteLine("1. 台灣 (Taiwan)");
+            Console.WriteLine("2. 香港澳門 (Hong Kong and Macau)");
+            Console.WriteLine("3. 馬來西亞 (Malaysia)");
+            Console.WriteLine("4. 新加坡 (Singapore)");
+            Console.Write("請輸入選擇 (1-4): ");
+            
+            var choice = Console.ReadLine()?.Trim();
+            
+            switch (choice)
+            {
+                case "1":
+                    currentRegion = GetTaiwanConfig();
+                    break;
+                case "2":
+                    currentRegion = GetHongKongAndMacauConfig();
+                    break;
+                case "3":
+                    currentRegion = GetMalaysiaConfig();
+                    break;
+                case "4":
+                    currentRegion = GetSingaporeConfig();
+                    break;
+                default:
+                    Console.WriteLine("無效選擇，默認使用台灣區域");
+                    currentRegion = GetTaiwanConfig();
+                    break;
+            }
+            
+            // 確保目錄存在
+            if (!Directory.Exists(currentRegion.DirectoryName))
+            {
+                Directory.CreateDirectory(currentRegion.DirectoryName);
+                Console.WriteLine($"已創建目錄: {currentRegion.DirectoryName}");
+            }
+            
+            // 確保緩存目錄存在
+            if (!Directory.Exists(cacheDirectory))
+            {
+                Directory.CreateDirectory(cacheDirectory);
+                Console.WriteLine($"已創建緩存目錄: {cacheDirectory}");
+            }
+        }
+
+        /// <summary>
         /// 直接生成文件模式：僅使用現有用戶數據生成HTML和Markdown文件
         /// </summary>
         static async Task GenerateFilesOnly()
@@ -301,39 +496,43 @@ namespace TaiwanPopularDevelopers
 
                 Console.WriteLine($"排名包含 {rankedUsers.Count} 個個人用戶");
 
-                // 生成台灣專案排名
-                Console.WriteLine("正在分析台灣專案...");
-                var taiwanProjects = GenerateTaiwanProjectsRanking(rankedUsers);
-                Console.WriteLine($"找到 {taiwanProjects.Count} 個台灣相關專案");
+                // 生成專案排名
+                Console.WriteLine($"正在分析{currentRegion.ChineseName}專案...");
+                var regionProjects = GenerateRegionProjectsRanking(rankedUsers);
+                Console.WriteLine($"找到 {regionProjects.Count} 個{currentRegion.ChineseName}相關專案");
 
                 // 生成用戶排名 Markdown
                 Console.WriteLine("正在生成用戶排名 Markdown 文件...");
                 var markdown = GenerateMarkdown(rankedUsers);
-                await File.WriteAllTextAsync("Readme.md", markdown, Encoding.UTF8);
-                Console.WriteLine("✓ Readme.md 已生成");
+                var readmePath = Path.Combine(currentRegion.DirectoryName, "README.md");
+                await File.WriteAllTextAsync(readmePath, markdown, Encoding.UTF8);
+                Console.WriteLine($"✓ {readmePath} 已生成");
 
                 // 生成用戶排名 HTML
                 Console.WriteLine("正在生成用戶排名 HTML 文件...");
                 var html = GenerateHtml(rankedUsers);
-                await File.WriteAllTextAsync("index.html", html, Encoding.UTF8);
-                Console.WriteLine("✓ index.html 已生成");
+                var indexPath = Path.Combine(currentRegion.DirectoryName, "index.html");
+                await File.WriteAllTextAsync(indexPath, html, Encoding.UTF8);
+                Console.WriteLine($"✓ {indexPath} 已生成");
 
-                // 生成台灣專案排名 Markdown
-                Console.WriteLine("正在生成台灣專案排名 Markdown 文件...");
-                var projectsMarkdown = await GenerateTaiwanProjectsMarkdown(taiwanProjects, rankedUsers);
-                await File.WriteAllTextAsync("Taiwan-Projects.md", projectsMarkdown, Encoding.UTF8);
-                Console.WriteLine("✓ Taiwan-Projects.md 已生成");
+                // 生成專案排名 Markdown
+                Console.WriteLine($"正在生成{currentRegion.ChineseName}專案排名 Markdown 文件...");
+                var projectsMarkdown = await GenerateRegionProjectsMarkdown(regionProjects, rankedUsers);
+                var projectsMarkdownPath = Path.Combine(currentRegion.DirectoryName, $"{currentRegion.Name}-Projects.md");
+                await File.WriteAllTextAsync(projectsMarkdownPath, projectsMarkdown, Encoding.UTF8);
+                Console.WriteLine($"✓ {projectsMarkdownPath} 已生成");
 
-                // 生成台灣專案排名 HTML
-                Console.WriteLine("正在生成台灣專案排名 HTML 文件...");
-                var projectsHtml = await GenerateTaiwanProjectsHtml(taiwanProjects, rankedUsers);
-                await File.WriteAllTextAsync("taiwan-projects.html", projectsHtml, Encoding.UTF8);
-                Console.WriteLine("✓ taiwan-projects.html 已生成");
+                // 生成專案排名 HTML
+                Console.WriteLine($"正在生成{currentRegion.ChineseName}專案排名 HTML 文件...");
+                var projectsHtml = await GenerateRegionProjectsHtml(regionProjects, rankedUsers);
+                var projectsHtmlPath = Path.Combine(currentRegion.DirectoryName, $"{currentRegion.Name.ToLower()}-projects.html");
+                await File.WriteAllTextAsync(projectsHtmlPath, projectsHtml, Encoding.UTF8);
+                Console.WriteLine($"✓ {projectsHtmlPath} 已生成");
 
                 Console.WriteLine("\n=== 文件生成完成 ===");
                 Console.WriteLine($"更新時間: {DateTime.Now:yyyy-MM-dd HH:mm:ss}");
                 Console.WriteLine($"用戶總數: {rankedUsers.Count}");
-                Console.WriteLine($"台灣專案總數: {taiwanProjects.Count}");
+                Console.WriteLine($"{currentRegion.ChineseName}專案總數: {regionProjects.Count}");
 
                 // 顯示前10名用戶
                 Console.WriteLine("\n前10名用戶:");
@@ -343,19 +542,19 @@ namespace TaiwanPopularDevelopers
                     Console.WriteLine($"{i + 1,2}. {user.Login} ({user.Name}) - 分數: {user.Score:F0}");
                 }
 
-                // 顯示前10個台灣專案
-                Console.WriteLine("\n前10個台灣專案:");
-                for (int i = 0; i < Math.Min(10, taiwanProjects.Count); i++)
+                // 顯示前10個專案
+                Console.WriteLine($"\n前10個{currentRegion.ChineseName}專案:");
+                for (int i = 0; i < Math.Min(10, regionProjects.Count); i++)
                 {
-                    var project = taiwanProjects[i];
+                    var project = regionProjects[i];
                     Console.WriteLine($"{i + 1,2}. {project.Name} - ⭐{project.StargazersCount:N0} (擁有者: {project.OwnerLogin})");
                 }
 
                 Console.WriteLine("\n文件生成完成！");
-                Console.WriteLine("• Readme.md - GitHub用戶排名 README 文件");
-                Console.WriteLine("• index.html - GitHub用戶排名 網頁");
-                Console.WriteLine("• Taiwan-Projects.md - 台灣專案排名 README 文件");
-                Console.WriteLine("• taiwan-projects.html - 台灣專案排名 網頁");
+                Console.WriteLine($"• README.md - GitHub用戶排名 README 文件");
+                Console.WriteLine($"• index.html - GitHub用戶排名 網頁");
+                Console.WriteLine($"• {currentRegion.Name}-Projects.md - {currentRegion.ChineseName}專案排名 README 文件");
+                Console.WriteLine($"• {currentRegion.Name.ToLower()}-projects.html - {currentRegion.ChineseName}專案排名 網頁");
             }
             catch (Exception ex)
             {
@@ -366,22 +565,22 @@ namespace TaiwanPopularDevelopers
         }
 
         /// <summary>
-        /// 生成台灣專案排名列表
+        /// 生成區域專案排名列表
         /// </summary>
         /// <param name="users">用戶列表</param>
-        /// <returns>台灣專案列表</returns>
-        static List<TaiwanProject> GenerateTaiwanProjectsRanking(List<GitHubUser> users)
+        /// <returns>區域專案列表</returns>
+        static List<RegionProject> GenerateRegionProjectsRanking(List<GitHubUser> users)
         {
-            var taiwanProjects = new Dictionary<string, TaiwanProject>();
+            var regionProjects = new Dictionary<string, RegionProject>();
             
             foreach (var user in users)
             {
-                // 檢查個人專案（專案擁有者是台灣用戶）
+                // 檢查個人專案（專案擁有者是區域用戶）
                 foreach (var repo in user.TopRepositories)
                 {
-                    if (!taiwanProjects.ContainsKey(repo.FullName))
+                    if (!regionProjects.ContainsKey(repo.FullName))
                     {
-                        taiwanProjects[repo.FullName] = new TaiwanProject
+                        regionProjects[repo.FullName] = new RegionProject
                         {
                             Name = repo.Name,
                             FullName = repo.FullName,
@@ -392,28 +591,28 @@ namespace TaiwanPopularDevelopers
                             OwnerLogin = repo.OwnerLogin,
                             OwnerType = "User",
                             Description = "",
-                            Reason = $"專案擁有者 {user.Login} 來自台灣",
-                            TaiwanContributors = new List<string> { user.Login }
+                            Reason = $"專案擁有者 {user.Login} 來自{currentRegion.ChineseName}",
+                            RegionContributors = new List<string> { user.Login }
                         };
                     }
                     else
                     {
-                        // 如果專案已存在，加入台灣貢獻者列表
-                        if (!taiwanProjects[repo.FullName].TaiwanContributors.Contains(user.Login))
+                        // 如果專案已存在，加入區域貢獻者列表
+                        if (!regionProjects[repo.FullName].RegionContributors.Contains(user.Login))
                         {
-                            taiwanProjects[repo.FullName].TaiwanContributors.Add(user.Login);
+                            regionProjects[repo.FullName].RegionContributors.Add(user.Login);
                         }
                     }
                 }
                 
-                // 檢查組織專案（台灣用戶是排名第一的貢獻者）
+                // 檢查組織專案（區域用戶是排名第一的貢獻者）
                 foreach (var repo in user.TopOrganizationRepositories)
                 {
                     if (repo.ContributorRank == 1) // 只有排名第一的才算
                     {
-                        if (!taiwanProjects.ContainsKey(repo.FullName))
+                        if (!regionProjects.ContainsKey(repo.FullName))
                         {
-                            taiwanProjects[repo.FullName] = new TaiwanProject
+                            regionProjects[repo.FullName] = new RegionProject
                             {
                                 Name = repo.Name,
                                 FullName = repo.FullName,
@@ -424,28 +623,28 @@ namespace TaiwanPopularDevelopers
                                 OwnerLogin = repo.OwnerLogin,
                                 OwnerType = "Organization",
                                 Description = "",
-                                Reason = $"台灣開發者 {user.Login} 是專案的第一貢獻者",
-                                TaiwanContributors = new List<string> { user.Login }
+                                Reason = $"{currentRegion.ChineseName}開發者 {user.Login} 是專案的第一貢獻者",
+                                RegionContributors = new List<string> { user.Login }
                             };
                         }
                         else
                         {
-                            if (!taiwanProjects[repo.FullName].TaiwanContributors.Contains(user.Login))
+                            if (!regionProjects[repo.FullName].RegionContributors.Contains(user.Login))
                             {
-                                taiwanProjects[repo.FullName].TaiwanContributors.Add(user.Login);
+                                regionProjects[repo.FullName].RegionContributors.Add(user.Login);
                             }
                         }
                     }
                 }
                 
-                // 檢查其他個人專案貢獻（台灣用戶是排名第一的貢獻者）
+                // 檢查其他個人專案貢獻（區域用戶是排名第一的貢獻者）
                 foreach (var repo in user.TopContributedRepositories)
                 {
                     if (repo.ContributorRank == 1) // 只有排名第一的才算
                     {
-                        if (!taiwanProjects.ContainsKey(repo.FullName))
+                        if (!regionProjects.ContainsKey(repo.FullName))
                         {
-                            taiwanProjects[repo.FullName] = new TaiwanProject
+                            regionProjects[repo.FullName] = new RegionProject
                             {
                                 Name = repo.Name,
                                 FullName = repo.FullName,
@@ -456,15 +655,15 @@ namespace TaiwanPopularDevelopers
                                 OwnerLogin = repo.OwnerLogin,
                                 OwnerType = "User",
                                 Description = "",
-                                Reason = $"台灣開發者 {user.Login} 是專案的第一貢獻者",
-                                TaiwanContributors = new List<string> { user.Login }
+                                Reason = $"{currentRegion.ChineseName}開發者 {user.Login} 是專案的第一貢獻者",
+                                RegionContributors = new List<string> { user.Login }
                             };
                         }
                         else
                         {
-                            if (!taiwanProjects[repo.FullName].TaiwanContributors.Contains(user.Login))
+                            if (!regionProjects[repo.FullName].RegionContributors.Contains(user.Login))
                             {
-                                taiwanProjects[repo.FullName].TaiwanContributors.Add(user.Login);
+                                regionProjects[repo.FullName].RegionContributors.Add(user.Login);
                             }
                         }
                     }
@@ -472,7 +671,7 @@ namespace TaiwanPopularDevelopers
             }
             
             // 按星星數排序並返回
-            return taiwanProjects.Values
+            return regionProjects.Values
                 .OrderByDescending(p => p.StargazersCount)
                 .ToList();
         }
@@ -483,17 +682,23 @@ namespace TaiwanPopularDevelopers
         /// <param name="projects">台灣專案列表</param>
         /// <param name="taiwanUsers">台灣開發者用戶列表</param>
         /// <returns>Markdown字符串</returns>
-        static async Task<string> GenerateTaiwanProjectsMarkdown(List<TaiwanProject> projects, List<GitHubUser> taiwanUsers)
+        /// <summary>
+        /// 生成區域專案排名的Markdown文檔
+        /// </summary>
+        /// <param name="projects">區域專案列表</param>
+        /// <param name="regionUsers">區域開發者用戶列表</param>
+        /// <returns>Markdown字符串</returns>
+        static async Task<string> GenerateRegionProjectsMarkdown(List<RegionProject> projects, List<GitHubUser> regionUsers)
         {
             var sb = new StringBuilder();
             
-            sb.AppendLine("# 台灣GitHub專案排名");
+            sb.AppendLine($"# {currentRegion.ChineseName}GitHub專案排名");
             sb.AppendLine();
             sb.AppendLine("> 本排名收錄以下類型的專案：");
             sb.AppendLine(">");
-            sb.AppendLine("> 1. **個人專案**：專案擁有者來自台灣");
-            sb.AppendLine("> 2. **組織專案**：台灣開發者是該專案的第一貢獻者");
-            sb.AppendLine("> 3. **開源貢獻**：台灣開發者是其他專案的第一貢獻者");
+            sb.AppendLine("> 1. **個人專案**：專案擁有者來自" + currentRegion.ChineseName);
+            sb.AppendLine("> 2. **組織專案**：" + currentRegion.ChineseName + "開發者是該專案的第一貢獻者");
+            sb.AppendLine("> 3. **開源貢獻**：" + currentRegion.ChineseName + "開發者是其他專案的第一貢獻者");
             sb.AppendLine(">");
             sb.AppendLine("> 按照 ⭐ Star 數量降序排列，顯示前100名");
             sb.AppendLine();
@@ -505,7 +710,7 @@ namespace TaiwanPopularDevelopers
             var top100Projects = projects.Take(100).ToList();
 
             // 生成表格標題
-            sb.AppendLine("| 排名 | 台灣貢獻者 | 專案名稱 | ⭐ Stars | 🍴 Forks | 語言 | 擁有者 | 原因 |");
+            sb.AppendLine($"| 排名 | {currentRegion.ChineseName}貢獻者 | 專案名稱 | ⭐ Stars | 🍴 Forks | 語言 | 擁有者 | 原因 |");
             sb.AppendLine("|------|------------|----------|----------|----------|------|--------|------|");
 
             for (int i = 0; i < top100Projects.Count; i++)
@@ -520,22 +725,22 @@ namespace TaiwanPopularDevelopers
                     var language = string.IsNullOrEmpty(project.Language) ? "-" : project.Language;
 
                     // 擁有者資訊 (頭像 + 姓名 + 真實姓名)
-                    var ownerName = await GetUserDisplayName(project.OwnerLogin, taiwanUsers);
+                    var ownerName = await GetUserDisplayName(project.OwnerLogin, regionUsers);
                     var owner = $"[<img src=\"https://github.com/{project.OwnerLogin}.png&s=32\" width=\"32\" height=\"32\" style=\"border-radius: 50%;\" />](https://github.com/{project.OwnerLogin})<br/>**[{project.OwnerLogin}](https://github.com/{project.OwnerLogin})**";
                     if (!string.IsNullOrEmpty(ownerName) && ownerName != project.OwnerLogin)
                     {
                         owner += $"<br/>{ownerName}";
                     }
 
-                    // 台灣貢獻者資訊 (頭像10x10px + 姓名 + 真實姓名)
-                    var sortedContributors = project.GetSortedTaiwanContributors(taiwanUsers);
+                    // 區域貢獻者資訊 (頭像10x10px + 姓名 + 真實姓名)
+                    var sortedContributors = project.GetSortedRegionContributors(regionUsers);
                     var contributors = "";
                     if (sortedContributors.Any())
                     {
                         var contributorsList = new List<string>();
                         foreach (var contributor in sortedContributors)
                         {
-                            var contributorName = GetUserDisplayNameFromList(contributor, taiwanUsers);
+                            var contributorName = GetUserDisplayNameFromList(contributor, regionUsers);
                             var contributorDisplay = $"[<img src=\"https://github.com/{contributor}.png&s=20\" width=\"10\" height=\"10\" style=\"border-radius: 50%;\" />](https://github.com/{contributor}) **[{contributor}](https://github.com/{contributor})**";
                             if (!string.IsNullOrEmpty(contributorName) && contributorName != contributor)
                             {
@@ -572,12 +777,12 @@ namespace TaiwanPopularDevelopers
         }
 
         /// <summary>
-        /// 生成台灣專案排名的HTML文檔
+        /// 生成區域專案排名的HTML文檔
         /// </summary>
-        /// <param name="projects">台灣專案列表</param>
-        /// <param name="taiwanUsers">台灣開發者用戶列表</param>
+        /// <param name="projects">區域專案列表</param>
+        /// <param name="regionUsers">區域開發者用戶列表</param>
         /// <returns>HTML字符串</returns>
-static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> projects, List<GitHubUser> taiwanUsers)
+        static async Task<string> GenerateRegionProjectsHtml(List<RegionProject> projects, List<GitHubUser> regionUsers)
         {
             var sb = new StringBuilder();
             sb.AppendLine("<!DOCTYPE html>");
@@ -585,7 +790,7 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
             sb.AppendLine("<head>");
             sb.AppendLine("    <meta charset=\"UTF-8\">");
             sb.AppendLine("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-            sb.AppendLine("    <title>台灣GitHub專案排名</title>");
+            sb.AppendLine($"    <title>{currentRegion.ChineseName}GitHub專案排名</title>");
             sb.AppendLine("    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css\">");
             sb.AppendLine("    <style>");
             sb.AppendLine("        body { font-family: 'Segoe UI', 'Noto Sans TC', Arial, sans-serif; background: #f7f7f7; color: #222; margin: 0; padding: 20px; }");
@@ -620,10 +825,11 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
             sb.AppendLine("</head>");
             sb.AppendLine("<body>");
             sb.AppendLine("    <div class=\"container\">");
-            sb.AppendLine("        <h1>台灣GitHub專案排名</h1>");
+            sb.AppendLine($"        <h1>{currentRegion.ChineseName}GitHub專案排名</h1>");
             sb.AppendLine("        <div class=\"nav-links\">");
             sb.AppendLine("            <a href=\"index.html\">🏆 開發者排名</a>");
-            sb.AppendLine("            <a href=\"taiwan-projects.html\">📂 專案排名</a>");
+            var projectsFileName = $"{currentRegion.Name.ToLower()}-projects.html";
+            sb.AppendLine($"            <a href=\"{projectsFileName}\">📂 專案排名</a>");
             sb.AppendLine("        </div>");
             
             // 取前100名專案
@@ -631,7 +837,7 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
             
             sb.AppendLine($"        <div class=\"stats\">更新時間: {DateTime.Now:yyyy-MM-dd HH:mm:ss} | 專案總數: {Math.Min(projects.Count, 100)} (顯示前100名)</div>");
             sb.AppendLine("        <div class=\"info\">");
-            sb.AppendLine("            收錄標準：個人專案擁有者來自台灣，或台灣開發者是該專案的第一貢獻者<br/>");
+            sb.AppendLine($"            收錄標準：個人專案擁有者來自{currentRegion.ChineseName}，或{currentRegion.ChineseName}開發者是該專案的第一貢獻者<br/>");
             sb.AppendLine("            按照 ⭐ Star 數量降序排列");
             sb.AppendLine("        </div>");
             sb.AppendLine("        <table>");
@@ -643,7 +849,7 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
             sb.AppendLine("                    <th style=\"width: 80px;\">🍴 Forks</th>");
             sb.AppendLine("                    <th style=\"width: 100px;\">語言</th>");
             sb.AppendLine("                    <th style=\"width: 120px;\">擁有者</th>");
-            sb.AppendLine("                    <th>台灣貢獻者</th>");
+            sb.AppendLine($"                    <th>{currentRegion.ChineseName}貢獻者</th>");
             sb.AppendLine("                    <th>收錄原因</th>");
             sb.AppendLine("                </tr>");
             sb.AppendLine("            </thead>");
@@ -656,7 +862,7 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
                 var languageDisplay = string.IsNullOrEmpty(project.Language) ? "-" : $"<span class=\"language\">{project.Language}</span>";
                 
                 // 生成擁有者信息，包含頭像和姓名
-                var ownerName = await GetUserDisplayName(project.OwnerLogin, taiwanUsers);
+                var ownerName = await GetUserDisplayName(project.OwnerLogin, regionUsers);
                 var ownerDisplay = project.OwnerLogin;
                 if (!string.IsNullOrEmpty(ownerName) && ownerName != project.OwnerLogin)
                 {
@@ -664,10 +870,10 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
                 }
                 var ownerHtml = $"<div class=\"owner-info\"><img class=\"avatar\" src=\"https://github.com/{project.OwnerLogin}.png?size=40\" alt=\"{project.OwnerLogin}\" /><a href=\"https://github.com/{project.OwnerLogin}\" target=\"_blank\">{ownerDisplay}</a></div>";
                 
-                // 生成台灣貢獻者信息，包含10x10px頭像和姓名，台灣開發者優先排序
-                var sortedContributors = project.GetSortedTaiwanContributors(taiwanUsers);
+                // 生成區域貢獻者信息，包含10x10px頭像和姓名，區域開發者優先排序
+                var sortedContributors = project.GetSortedRegionContributors(regionUsers);
                 var contributorsHtml = string.Join(" ", sortedContributors.Select(c => {
-                    var contributorName = GetUserDisplayNameFromList(c, taiwanUsers);
+                    var contributorName = GetUserDisplayNameFromList(c, regionUsers);
                     var displayName = c;
                     if (!string.IsNullOrEmpty(contributorName) && contributorName != c)
                     {
@@ -749,9 +955,10 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
         {
             try
             {
-                if (File.Exists("Users.json"))
+                var userJsonPath = Path.Combine(currentRegion.DirectoryName, "Users.json");
+                if (File.Exists(userJsonPath))
                 {
-                    var jsonContent = await File.ReadAllTextAsync("Users.json", Encoding.UTF8);
+                    var jsonContent = await File.ReadAllTextAsync(userJsonPath, Encoding.UTF8);
                     var existingData = JsonConvert.DeserializeObject<dynamic>(jsonContent);
                     if (existingData?.Users != null)
                     {
@@ -801,7 +1008,8 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
                 };
                 
                 var jsonString = JsonConvert.SerializeObject(jsonData, Formatting.Indented);
-                await File.WriteAllTextAsync("Users.json", jsonString, Encoding.UTF8);
+                var userJsonPath = Path.Combine(currentRegion.DirectoryName, "Users.json");
+                await File.WriteAllTextAsync(userJsonPath, jsonString, Encoding.UTF8);
             }
             catch (Exception ex)
             {
@@ -811,8 +1019,13 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
 
         static async Task Main(string[] args)
         {
-            Console.WriteLine("台灣知名GitHub用戶排名系統");
+            Console.WriteLine("GitHub用戶排名系統");
+            Console.WriteLine();
+            
+            // 選擇區域
+            SelectRegion();
 
+            Console.WriteLine($"當前選擇區域: {currentRegion.ChineseName}");
             Console.WriteLine("提醒事項:");
             Console.WriteLine("• 程序運行期間可能會遇到GitHub API臨時錯誤，這是正常現象");
             Console.WriteLine("• 如果看到 'InternalServerError' 或空回應，程序會自動重試");
@@ -822,6 +1035,17 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
             Console.WriteLine("• 使用 --generate 或 -g 參數可直接生成文件而不重新檢索數據");
             Console.WriteLine();
 
+            // 檢查命令行參數
+            bool generateOnly = args.Any(arg => arg.ToLower() == "--generate" || arg.ToLower() == "-g");
+            
+            if (generateOnly)
+            {
+                Console.WriteLine("直接生成模式：使用現有用戶數據生成HTML和Markdown文件");
+                await GenerateFilesOnly();
+                return;
+            }
+            
+            Console.WriteLine("按任意鍵繼續，或輸入 '--generate' 進入直接生成模式...");
             var skipResponse = Console.ReadLine()?.ToLower();
             
             // 檢查是否有命令行參數要求直接生成文件
@@ -843,8 +1067,8 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
             CleanExpiredCache();
 
             // 詢問是否需要跳過用戶直到指定用戶名
+            Console.WriteLine("是否需要跳過用戶直到指定用戶名？(y/n)");
             skipResponse = Console.ReadLine()?.ToLower();
-            Console.WriteLine("\n是否需要跳過用戶直到指定用戶名？(y/n)");
             
             string? skipUntilUserName = null;
             
@@ -878,7 +1102,7 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
                 githubToken = null;
             }
 
-            Console.WriteLine("正在搜尋台灣地區的GitHub用戶...");
+            Console.WriteLine($"正在搜尋{currentRegion.ChineseName}地區的GitHub用戶...");
 
             // 設置HttpClient
             SetupHttpClient();
@@ -928,8 +1152,8 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
                 Console.WriteLine("按任意鍵繼續...");
             }
 
-            // 搜尋每個地區的用戶
-            foreach (var query in SearchQueries)
+            // 搜尋每個地區的用戶 - 使用當前區域的搜索查詢
+            foreach (var query in currentRegion.SearchQueries)
             {
                 Console.WriteLine($"搜尋地區: {query}");
                 try
@@ -956,7 +1180,7 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
                 }
             }
 
-            Console.WriteLine($"找到 {allUsers.Count} 個台灣地區的GitHub用戶 (其中 {existingUsers.Count} 個已完成)");
+            Console.WriteLine($"找到 {allUsers.Count} 個{currentRegion.ChineseName}地區的GitHub用戶 (其中 {existingUsers.Count} 個已完成)");
 
             // 重新處理所有用戶的項目信息以獲取最新數據和排名信息
             Console.WriteLine("重新處理所有用戶以獲取最新的項目信息和排名數據...");
@@ -1043,32 +1267,36 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
             await SaveUserData(rankedUsers);
             Console.WriteLine("所有用戶資料已最終儲存到 Users.json");
 
-            // 生成台灣專案排名
-            Console.WriteLine("正在分析台灣專案...");
-            var taiwanProjects = GenerateTaiwanProjectsRanking(rankedUsers);
-            Console.WriteLine($"找到 {taiwanProjects.Count} 個台灣相關專案");
+            // 生成專案排名
+            Console.WriteLine($"正在分析{currentRegion.ChineseName}專案...");
+            var regionProjects = GenerateRegionProjectsRanking(rankedUsers);
+            Console.WriteLine($"找到 {regionProjects.Count} 個{currentRegion.ChineseName}相關專案");
 
             // 生成用戶排名 Markdown
             var markdown = GenerateMarkdown(rankedUsers);
-            await File.WriteAllTextAsync("Readme.md", markdown, Encoding.UTF8);
+            var readmePath = Path.Combine(currentRegion.DirectoryName, "README.md");
+            await File.WriteAllTextAsync(readmePath, markdown, Encoding.UTF8);
             
             // 生成用戶排名 HTML
             var html = GenerateHtml(rankedUsers);
-            await File.WriteAllTextAsync("index.html", html, Encoding.UTF8);
+            var indexPath = Path.Combine(currentRegion.DirectoryName, "index.html");
+            await File.WriteAllTextAsync(indexPath, html, Encoding.UTF8);
             
-            // 生成台灣專案排名 Markdown
-            var projectsMarkdown = await GenerateTaiwanProjectsMarkdown(taiwanProjects, rankedUsers);
-            await File.WriteAllTextAsync("Taiwan-Projects.md", projectsMarkdown, Encoding.UTF8);
+            // 生成專案排名 Markdown
+            var projectsMarkdown = await GenerateRegionProjectsMarkdown(regionProjects, rankedUsers);
+            var projectsMarkdownPath = Path.Combine(currentRegion.DirectoryName, $"{currentRegion.Name}-Projects.md");
+            await File.WriteAllTextAsync(projectsMarkdownPath, projectsMarkdown, Encoding.UTF8);
             
-            // 生成台灣專案排名 HTML
-            var projectsHtml = await GenerateTaiwanProjectsHtml(taiwanProjects, rankedUsers);
-            await File.WriteAllTextAsync("taiwan-projects.html", projectsHtml, Encoding.UTF8);
+            // 生成專案排名 HTML
+            var projectsHtml = await GenerateRegionProjectsHtml(regionProjects, rankedUsers);
+            var projectsHtmlPath = Path.Combine(currentRegion.DirectoryName, $"{currentRegion.Name.ToLower()}-projects.html");
+            await File.WriteAllTextAsync(projectsHtmlPath, projectsHtml, Encoding.UTF8);
             
             Console.WriteLine("排名已生成並儲存到以下文件:");
-            Console.WriteLine("• Readme.md - GitHub用戶排名 README 文件");
-            Console.WriteLine("• index.html - GitHub用戶排名 網頁");
-            Console.WriteLine("• Taiwan-Projects.md - 台灣專案排名 README 文件");
-            Console.WriteLine("• taiwan-projects.html - 台灣專案排名 網頁");
+            Console.WriteLine($"• {readmePath} - GitHub用戶排名 README 文件");
+            Console.WriteLine($"• {indexPath} - GitHub用戶排名 網頁");
+            Console.WriteLine($"• {projectsMarkdownPath} - {currentRegion.ChineseName}專案排名 README 文件");
+            Console.WriteLine($"• {projectsHtmlPath} - {currentRegion.ChineseName}專案排名 網頁");
             
             Console.WriteLine($"\n前10名用戶:");
             for (int i = 0; i < Math.Min(10, rankedUsers.Count); i++)
@@ -1077,10 +1305,10 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
                 Console.WriteLine($"{i + 1}. {user.Name} (@{user.Login}) - 分數: {user.Score:F0}");
             }
             
-            Console.WriteLine($"\n前10個台灣專案:");
-            for (int i = 0; i < Math.Min(10, taiwanProjects.Count); i++)
+            Console.WriteLine($"\n前10個{currentRegion.ChineseName}專案:");
+            for (int i = 0; i < Math.Min(10, regionProjects.Count); i++)
             {
-                var project = taiwanProjects[i];
+                var project = regionProjects[i];
                 Console.WriteLine($"{i + 1}. {project.Name} - ⭐{project.StargazersCount:N0} (擁有者: {project.OwnerLogin})");
             }
             
@@ -2690,7 +2918,7 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
         {
             var sb = new StringBuilder();
             
-            sb.AppendLine("# 知名GitHub用戶排名");
+            sb.AppendLine($"# {currentRegion.ChineseName}知名GitHub用戶排名");
             sb.AppendLine();
             sb.AppendLine("> 本排名基於以下指標計算：");
             sb.AppendLine(">");
@@ -2826,7 +3054,7 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
             sb.AppendLine("<head>");
             sb.AppendLine("    <meta charset=\"UTF-8\">");
             sb.AppendLine("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-            sb.AppendLine("    <title>台灣知名GitHub用戶排名</title>");
+            sb.AppendLine($"    <title>{currentRegion.ChineseName}知名GitHub用戶排名</title>");
             sb.AppendLine("    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css\">");
             sb.AppendLine("    <style>");
             sb.AppendLine("        body { font-family: 'Segoe UI', 'Noto Sans TC', Arial, sans-serif; background: #f7f7f7; color: #222; }");
@@ -2842,19 +3070,19 @@ static async Task<string> GenerateTaiwanProjectsHtml(List<TaiwanProject> project
             sb.AppendLine("    </style>");
             sb.AppendLine("</head>");
             sb.AppendLine("<body>");
-            sb.AppendLine("<h1>台灣知名GitHub用戶排名</h1>");
+            sb.AppendLine($"<h1>{currentRegion.ChineseName}知名GitHub用戶排名</h1>");
             sb.AppendLine("<div style='text-align:center; margin-bottom: 2rem;'>");
             sb.AppendLine("    <a href='index.html' style='color: #3498db; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid #3498db; border-radius: 4px; background: #3498db; color: white;'>🏆 開發者排名</a>");
             sb.AppendLine("    <a href='taiwan-projects.html' style='color: #3498db; text-decoration: none; margin: 0 15px; padding: 8px 16px; border: 1px solid #3498db; border-radius: 4px;'>📂 專案排名</a>");
             sb.AppendLine("</div>");
             sb.AppendLine($"<p style='text-align:center;'>更新時間: {DateTime.Now:yyyy-MM-dd HH:mm:ss}｜總計用戶數: {users.Count}</p>");
             sb.AppendLine("<table>");
-            sb.AppendLine("<tr><th>Badge</th><th>排名</th><th>開發者</th><th>Followers</th><th>Personal Projects</th><th>Top Org Projects</th><th>Top Contributed Projects</th></tr>");
+            sb.AppendLine("<tr><th>Score</th><th>排名</th><th>開發者</th><th>Followers</th><th>Personal Projects</th><th>Top Org Projects</th><th>Top Contributed Projects</th></tr>");
             for (int i = 0; i < users.Count; i++)
             {
                 var user = users[i];
                 var rank = i + 1;
-                var badgeUrl = $"https://img.shields.io/badge/K.O.%E6%A6%9C-NO{rank}%20%E6%88%B0%E5%8A%9B{user.Score:F0}_-red?style=for-the-badge&logo=github&logoColor=white&labelColor=black";
+                var badgeUrl = $"https://img.shields.io/badge/NO{rank}%20{user.Score:F0}_-red?style=for-the-badge&logo=github&logoColor=white&labelColor=black";
                 var badgeHtml = $"<button class='badge-btn' onclick=\"navigator.clipboard.writeText('{badgeUrl}')\"><img src='{badgeUrl}' alt='K.O.榜戰力指數' title='點擊複製 badge 連結' /></button>";
                 var developerInfo = $"<a href='{user.HtmlUrl}' target='_blank'><img class='avatar' src='{user.AvatarUrl}&s=32' alt='{user.Login}' /></a><br/><a href='{user.HtmlUrl}' target='_blank'><b>{user.Login}</b></a><br/>{user.Name}";
                 if (!string.IsNullOrEmpty(user.Location))
