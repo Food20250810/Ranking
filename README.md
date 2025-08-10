@@ -21,6 +21,7 @@
 ### 🏆 [马来西亚排行](https://food20250810.github.io/Ranking/Malaysia/index.html)
 
 
+
 ## 授權
 
 本專案採用[MIT授權條款](/LICENSE)。
