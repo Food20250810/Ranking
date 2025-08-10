@@ -13,11 +13,12 @@
 ## 專案
 ### 🏆 [台灣排行](https://food20250810.github.io/Ranking/taiwan/taiwan-projects.html)
 ### 🏆 [港澳排行](https://food20250810.github.io/Ranking/HongKongAndMacau/hong%20kong%20and%20macau-projects.html)
+### 🏆 [马来西亚排行](https://food20250810.github.io/Ranking/Malaysia/malaysia-projects.html)
 
 ## 個人
 ### 🏆 [台灣排行](https://food20250810.github.io/Ranking/taiwan/index.html)
 ### 🏆 [港澳排行](https://food20250810.github.io/Ranking/HongKongAndMacau/index.html)
-
+### 🏆 [马来西亚排行](https://food20250810.github.io/Ranking/Malaysia/index.html)
 
 
 ## 授權
